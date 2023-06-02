@@ -246,4 +246,46 @@ LEVEL2(1 components\loading\content.blade.php)
 nothing just loading spin
 
 LEVEL2(2 components\documents\form\company.blade.php)
+
 SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\form\accordion\index.blade.php
+C:\wamp64\www\akaunting\resources\views\components\form\accordion\head.blade.php
+C:\wamp64\www\akaunting\resources\views\components\form\group\text.blade.php
+C:\wamp64\www\akaunting\resources\views\components\form\group\file.blade.php
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingCompanyEdit.vue
+
+DATA 
+$hideLogo-from Controller component
+$textSectionCompaniesTitle-from Controller component
+$textSectionCompaniesDescription-from Controller component
+$titleSetting-from Controller component
+$subheadingSetting-from Controller component
+$hideDocumentSubheading-from Controller component
+$hideCompanyEdit-from Controller component
+$company-from Controller component
+
+SLOTS 
+head,body
+
+LEVEL3(1 components\form\accordion\index.blade.php)
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\icon.blade.php
+
+DATA 
+$attributes-From Prop
+$icon-from Controller component
+$type-From Parent Component
+$body -slots
+$foot-slots
+$head-slots
+
+LEVEL4(1 components\icon.blade.php)
+DATA 
+$sharp-from Controller component
+$filled-from Controller component
+$class-from Controller component
+$simpleIcons-from Controller component
+$rounded-from Controller component
+$custom-from Controller component
+$attributes-From Prop
+$icon-From Parent Component
