@@ -289,3 +289,53 @@ $rounded-from Controller component
 $custom-from Controller component
 $attributes-From Prop
 $icon-From Parent Component
+
+LEVEL3(2 components\form\accordion\head.blade.php)
+DATA 
+$description-From Parent Component
+$title-From Parent Component
+
+LEVEL3(3 components\form\group\text.blade.php)
+DATA 
+$formGroupClass-from Controller component
+$required-from Controller component
+$readonly-from Controller component
+$disabled-from Controller component
+$attributes['v-show']-$attributes
+$attributes['v-bind:disabled']-$attributes
+$attributes['v-error']-$attributes
+$label-from Controller component
+$inputGroupClass-from Controller component
+$icon
+$name-from Controller component
+$id-from Controller component
+$error
+$value-from Controller component
+$placeholder -from Controller component
+$attributes['v-model']-$attributes
+$custom_attributes-from Controller component
+
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\form\label.blade.php
+C:\wamp64\www\akaunting\resources\views\components\form\icon.blade.php
+C:\wamp64\www\akaunting\resources\views\components\form\error.blade.php
+C:\wamp64\www\akaunting\resources\views\components\form\input\text.blade.php
+
+LEVEL4(1 components\form\label.blade.php)
+DATA 
+$slot-content from parent
+$attributes- From $attributes
+
+LEVEL4(2 components\form\icon.blade.php)
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\icon.blade.php
+
+LEVEL5(1 components\icon.blade.php)
+Already Explained
+
+LEVEL4(1 components\form\error.blade.php)
+DATA 
+$attributes['v-error']-From $attributes
+form.errors.has("' . $name . '")
+$name -From Parent
+$attributes['v-error-message']-From $attributes
