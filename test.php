@@ -333,9 +333,135 @@ C:\wamp64\www\akaunting\resources\views\components\icon.blade.php
 LEVEL5(1 components\icon.blade.php)
 Already Explained
 
-LEVEL4(1 components\form\error.blade.php)
+LEVEL4(3 components\form\error.blade.php)
 DATA 
 $attributes['v-error']-From $attributes
-form.errors.has("' . $name . '")
+form.errors.has("' . $name . '")-?
 $name -From Parent
 $attributes['v-error-message']-From $attributes
+
+LEVEL4(4 components\form\input\text.blade.php)
+$name-From Parent
+$id-From Parent
+$placeholder-From Parent
+$value-From Parent
+
+LEVEL3(4 components\form\group\file.blade.php)
+DATA 
+$formGroupClass-from Controller component
+$required-from Controller component
+$readonly-from Controller component
+$disabled-from Controller component
+$attributes['v-show']-$attributes
+$attributes['v-bind:disabled']-$attributes
+$attributes['v-error']-$attributes
+$label-from Controller component
+$inputGroupClass-from Controller component
+$icon
+$options
+$name-from Controller component
+$id-from Controller component
+$error
+$value-from Controller component
+$placeholder -from Controller component
+$attributes['v-model']-$attributes
+$custom_attributes-from Controller component
+
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\form\label.blade.php
+C:\wamp64\www\akaunting\resources\views\components\form\icon.blade.php
+C:\wamp64\www\akaunting\resources\views\components\form\error.blade.php
+C:\wamp64\www\akaunting\resources\views\components\form\input\file.blade.php
+
+LEVEL4(1 components\form\label.blade.php)
+DATA 
+$slot-content from parent
+$attributes- From $attributes
+
+LEVEL4(2 components\form\icon.blade.php)
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\icon.blade.php
+
+LEVEL5(1 components\icon.blade.php)
+Already Explained
+
+LEVEL4(3 components\form\error.blade.php)
+DATA 
+$attributes['v-error']-From $attributes
+form.errors.has("' . $name . '")-?
+$name -From Parent
+$attributes['v-error-message']-From $attributes
+
+LEVEL4(4 components\form\input\file.blade.php)
+DATA 
+$attributes['dropzone-class']-From attributes
+$options-From Controller Component
+$name-From Parent
+$multiple-From Parent
+$attributes['preview']-From attributes
+$attributes['previewClasses']-From attributes
+attributes['singleWidthClasses']-From attributes
+$attributes['url']-From attributes
+$attributes['v-model']-From attributes
+$attributes['data-field']-From attributes
+$value-From Controller Component
+
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingDropzoneFileUpload.vue
+
+LEVEL5(1 components\AkauntingDropzoneFileUpload.vue)
+DATA 
+preview -From Props
+previewClasses -From Props
+singleWidthClasses -From Props
+multiple - From Props
+textDropFile- From Props
+textChooseFile- From Props
+options -From Props
+value -From Props
+url -From Props
+multiple -From Props
+attachments -From Props
+model-From Props
+
+LEVEL4(5 components\AkauntingCompanyEdit.vue)
+PROPS
+company, taxNumberText, companyId,companyForm,description
+
+DATA 
+form,company_form,company_html
+
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingModalAddNew.vue
+AkauntingModal from './AkauntingModal'
+AkauntingMoney from './AkauntingMoney'
+AkauntingRadioGroup from './AkauntingRadioGroup'
+AkauntingSelect from './AkauntingSelect'
+AkauntingDate from './AkauntingDate'
+{ Select, Option, OptionGroup, ColorPicker } from 'element-ui'
+PLUGINS 
+Form from './../plugins/form'
+
+DynamicComponent
+<component v-bind:is="company_html" @submit="onSubmit" @cancel="onCancel"></component>
+
+LEVEL5(1 components\AkauntingModalAddNew.vue)
+PROPS
+show,is_component,title, message, buttons,animationDuration,modalDialogClass,modalPositionTop
+
+SUBCOMPONENT
+import { SlideYUpTransition } from "vue2-transitions";
+import AkauntingModal from './AkauntingModal';
+import AkauntingMoney from './AkauntingMoney';
+import AkauntingRadioGroup from './AkauntingRadioGroup';
+import AkauntingSelect from './AkauntingSelect';
+import AkauntingSelectRemote from './AkauntingSelectRemote';
+import AkauntingDate from './AkauntingDate';
+import AkauntingRecurring from './AkauntingRecurring';
+
+import Form from './../plugins/form';
+import { Alert, ColorPicker } from 'element-ui';
+import Global from './../mixins/global';
+
+DATA 
+form,display,component,money,created
