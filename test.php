@@ -465,3 +465,104 @@ import Global from './../mixins/global';
 
 DATA 
 form,display,component,money,created
+
+DynamicComponent
+add-new-component
+
+LEVEL6(1 vue2-transitions)
+it is built in
+
+LEVEL6(2 AkauntingModal)
+PROPS
+show,modalDialogClass,title,message,button_cancel, button_delete, animationDuration,modalPositionTop
+
+DATA
+form, display,created
+
+SUBCOMPONENT
+import { SlideYUpTransition } from "vue2-transitions";
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingRadioGroup.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingSelect.vue
+import AkauntingDate from './AkauntingDate';
+import AkauntingRecurring from './AkauntingRecurring';
+import AkauntingMoney from './AkauntingMoney';
+
+LEVEL7(1 Acomponents\AkauntingRadioGroup.vue)
+PROPS
+name,text,value,enable,disable,col
+DATA
+focused,real_value
+
+LEVEL7(2 components\AkauntingSelect.vue)
+Global SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\assets\js\components\Inputs\BaseInput.vue
+SUBCOMPONENT
+import { Select, Option, OptionGroup, ColorPicker } from 'element-ui';
+
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingModalAddNew.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingModal.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingMoney.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingRadioGroup.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingDate.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingSelect.vue
+
+C:\wamp64\www\akaunting\resources\assets\js\plugins\form.js
+PROPS
+title,placeholder, formClasses,formError,icon,name,value,options,dynamicOptions,fullOptions,disabledOptions,description
+option_sortable,sortOptions, model,addNew,description,group,multiple,readonly,clearable, notRequired,disabled,collapse,noDataText,noMatchingDataText,searchable,searchText,forceDynamicOptionValue
+
+DATA 
+dynamicPlaceholder,add_new,add_new_html,selected, form,sorted_options,full_options,new_options,loading,remote
+
+DynamicComponent
+add-new-component
+
+LEVEL8(1 components\AkauntingModalAddNew.vue)
+Already
+
+LEVEL8(2 components\AkauntingModal.vue)
+Already
+
+LEVEL8(3 components\AkauntingMoney.vue)
+PROPS
+title,placeholder,value,moneyClass, group_class, col, error,required,readonly, disabled,isDynamic,dynamicCurrency, currency,masked,rowInput, notRequired
+
+SUBCOMPONENT
+import {Money} from 'v-money';
+
+Global Component
+money
+
+LEVEL9(1 money)
+From  v-money package
+
+
+LEVEL8(4 components\AkauntingRadioGroup.vue)
+Already
+LEVEL8(5 components\AkauntingDate.vue)
+
+SUBCOMPONENT
+import flatPicker from "vue-flatpickr-component";
+import "flatpickr/dist/flatpickr.css";
+
+PROPS
+title,dataName,placeholder,readonly,notRequired,period,disabled,formClasses,formError,name,value,model,dateConfig,icon,locale,hiddenYear,dataValueMin
+
+LEVEL9(1 flatPicker)
+From  flatpickr library
+
+LEVEL8(6 components\AkauntingSelect.vue)
+Already
+
+LEVEL8(7 plugins\form.js)
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\assets\js\plugins\error.js
+
+Data 
+form,name,data
+
+LEVEL9(1 js\plugins\error.js)
+DATA 
+errors
+
+LEVEL8(8 components\Inputs\BaseInput.vue)
