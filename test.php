@@ -451,17 +451,17 @@ show,is_component,title, message, buttons,animationDuration,modalDialogClass,mod
 
 SUBCOMPONENT
 import { SlideYUpTransition } from "vue2-transitions";
-import AkauntingModal from './AkauntingModal';
-import AkauntingMoney from './AkauntingMoney';
-import AkauntingRadioGroup from './AkauntingRadioGroup';
-import AkauntingSelect from './AkauntingSelect';
-import AkauntingSelectRemote from './AkauntingSelectRemote';
-import AkauntingDate from './AkauntingDate';
-import AkauntingRecurring from './AkauntingRecurring';
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingModal.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingMoney.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingRadioGroup.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingSelect.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingSelectRemote.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingDate.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingRecurring.vue
 
-import Form from './../plugins/form';
+C:\wamp64\www\akaunting\resources\assets\js\plugins\form.js
 import { Alert, ColorPicker } from 'element-ui';
-import Global from './../mixins/global';
+C:\wamp64\www\akaunting\resources\assets\js\mixins\global.js
 
 DATA 
 form,display,component,money,created
@@ -483,9 +483,9 @@ SUBCOMPONENT
 import { SlideYUpTransition } from "vue2-transitions";
 C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingRadioGroup.vue
 C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingSelect.vue
-import AkauntingDate from './AkauntingDate';
-import AkauntingRecurring from './AkauntingRecurring';
-import AkauntingMoney from './AkauntingMoney';
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingDate.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingRecurring.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingMoney.vue
 
 LEVEL7(1 Acomponents\AkauntingRadioGroup.vue)
 PROPS
@@ -515,7 +515,7 @@ DATA
 dynamicPlaceholder,add_new,add_new_html,selected, form,sorted_options,full_options,new_options,loading,remote
 
 DynamicComponent
-add-new-component
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingSelect.vue @add-new-component
 
 LEVEL8(1 components\AkauntingModalAddNew.vue)
 Already
@@ -566,3 +566,157 @@ DATA
 errors
 
 LEVEL8(8 components\Inputs\BaseInput.vue)
+PROPS 
+required,group,valid,alternative,label,error,footerError,successMessage,formClasses,labelClasses,inputClasses,inputGroupClasses,value,type, appendIcon,prependIcon,notRequired
+
+DATA 
+focused
+
+LEVEL8(9 components\AkauntingSelect.vue @add-new-component)
+
+SUBCOMPONENT {ALREADY}
+AkauntingModalAddNew,AkauntingRadioGroup,AkauntingSelect,AkauntingModal,AkauntingMoney,AkauntingDate,AkauntingRecurring,[ColorPicker.name]: ColorPicker,
+
+DATA 
+add_new
+
+LEVEL7(3 components\AkauntingDate.vue)
+ALREADY
+
+LEVEL7(4 components\AkauntingRecurring.vue)
+PROPS
+startText, dateRangeText,middleText,endText,frequencies,frequencyText,frequencyEveryText,frequencyValue,invertalError,customFrequencies,customFrequencyValue,customFrequencyError,startedValue,startedError,limits,limitValue,limitCountValue,limitCountError,limitDateValue,limitDateError,dateFormat,sendEmailShow,sendEmailText,sendEmailYesText,sendEmailNoText,sendEmailValue
+
+LEVEL7(5 components\AkauntingMoney.vue)
+ALREADY
+
+DATA 
+frequency,interval,customFrequency,started_at,limit,limitCount,limitDate,formatDate,sendEmail
+
+LEVEL6(3 components\AkauntingModal.vue)
+ALREADY
+
+LEVEL6(4 components\AkauntingMoney.vue)
+ALREADY
+LEVEL6(5 components\AkauntingRadioGroup.vue)
+ALREADY
+
+LEVEL6(6 components\AkauntingSelect.vue)
+ALREADY
+
+LEVEL6(7 components\AkauntingSelectRemote.vue)
+SUBCOMPONENT (ALREADY)
+
+import { Select, Option, OptionGroup, ColorPicker } from 'element-ui';
+import AkauntingModalAddNew from './AkauntingModalAddNew';
+import AkauntingModal from './AkauntingModal';
+import AkauntingMoney from './AkauntingMoney';
+import AkauntingRadioGroup from './AkauntingRadioGroup';
+import AkauntingSelect from './AkauntingSelect';
+import AkauntingDate from './AkauntingDate';
+import AkauntingRecurring from './AkauntingRecurring';
+
+import Form from './../plugins/form';
+
+PROPS 
+title,placeholder,formClasses,formError,icon,name,value,options,dynamicOptions,fullOptions,disabledOptions,option_sortable,sortOptions,model,addNew, group,multiple, readonly, noArrow,clearable,notRequired,disabled,collapse,noDataText,noMatchingDataText,searchable,searchText,remoteAction,currencyCode
+
+DATA 
+dynamicPlaceholder,add_new,add_new_html,selected,form ,sorted_options,full_options,new_options,loading
+
+DynamicComponent{ALREADY}
+add-new-component
+
+GLOBAL COMPONENT {ALREADY}
+base-input
+
+LEVEL6(8 components\AkauntingDate.vue)
+ALREADY
+
+LEVEL6(9 components\AkauntingRecurring.vue)
+ALREADY
+
+LEVEL6(10 js\plugins\form.js)
+
+LEVEL6(11 js\mixins\global.js)
+SUBCOMPONENT
+import axios from 'axios';
+
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingDropzoneFileUpload.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingContactCard.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingCompanyEdit.vue
+import AkauntingEditItemColumns from './../components/AkauntingEditItemColumns';
+import AkauntingItemButton from './../components/AkauntingItemButton';
+import AkauntingDocumentButton from './../components/AkauntingDocumentButton';
+import AkauntingSearch from './../components/AkauntingSearch';
+import AkauntingModal from './../components/AkauntingModal';
+import AkauntingMoney from './../components/AkauntingMoney';
+import AkauntingModalAddNew from './../components/AkauntingModalAddNew';
+import AkauntingRadioGroup from './../components/AkauntingRadioGroup';
+import AkauntingSelect from './../components/AkauntingSelect';
+import AkauntingSelectRemote from './../components/AkauntingSelectRemote';
+import AkauntingDate from './../components/AkauntingDate';
+import AkauntingRecurring from './../components/AkauntingRecurring';
+import AkauntingHtmlEditor from './../components/AkauntingHtmlEditor';
+import AkauntingCountdown from './../components/AkauntingCountdown';
+import AkauntingCurrencyConversion from './../components/AkauntingCurrencyConversion';
+import AkauntingConnectTransactions from './../components/AkauntingConnectTransactions';
+import AkauntingSwitch from './../components/AkauntingSwitch';
+import AkauntingSlider from './../components/AkauntingSlider';
+import AkauntingColor from './../components/AkauntingColor';
+import CardForm from './../components/CreditCard/CardForm';
+
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
+import NProgressAxios from './../plugins/nprogress-axios';
+
+import { Select, Option, Steps, Step, Button, Link, Tooltip, ColorPicker } from 'element-ui';
+
+import Form from './../plugins/form';
+import Swiper, { Navigation, Pagination } from 'swiper';
+import GLightbox from 'glightbox';
+
+Swiper.use([Navigation, Pagination]);
+
+import Bugsnag from './../exceptions/trackers/bugsnag';
+import Sentry from './../exceptions/trackers/sentry';
+
+DATA 
+component,currency,all_currencies,connect,cardData,min_date,item_name_input,price_name_input,quantity_name_input
+
+DynamicComponent
+add-new-component{ALREADY}
+
+LEVEL7(1 components\AkauntingDropzoneFileUpload.vue)
+PROPS 
+textDropFile,textChooseFile,options,value,url,multiple,previewClasses, singleWidthClasses,preview,attachments,model
+
+DATA 
+files,configurations
+
+LEVEL7(2 components\AkauntingContactCard.vue)
+SUBCOMPONENT
+import Vue from 'vue';
+
+import { Select, Option, OptionGroup, ColorPicker } from 'element-ui';
+
+import AkauntingModalAddNew from './AkauntingModalAddNew';
+import AkauntingModal from './AkauntingModal';
+import AkauntingMoney from './AkauntingMoney';
+import AkauntingRadioGroup from './AkauntingRadioGroup';
+import AkauntingSelect from './AkauntingSelect';
+import AkauntingDate from './AkauntingDate';
+
+import Form from './../plugins/form';
+
+PROPS 
+placeholder,searchRoute,createRoute,error,selected, contacts,addNew,addContactText,createNewContactText,editContactText,contactInfoText,taxNumberText,chooseDifferentContactText,noDataText,noMatchingDataText
+
+DATA 
+contact_list, contact,search,show, form,add_new,add_new_html
+
+DYNAMICCOMPONENT {ALREADY}
+add-new-component
+
+LEVEL7(3 components\AkauntingContactCard.vue)
+ALREADY
