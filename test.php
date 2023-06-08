@@ -645,10 +645,18 @@ import axios from 'axios';
 C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingDropzoneFileUpload.vue
 C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingContactCard.vue
 C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingCompanyEdit.vue
-import AkauntingEditItemColumns from './../components/AkauntingEditItemColumns';
-import AkauntingItemButton from './../components/AkauntingItemButton';
-import AkauntingDocumentButton from './../components/AkauntingDocumentButton';
-import AkauntingSearch from './../components/AkauntingSearch';
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingEditItemColumns.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingItemButton.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingDocumentButton.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingSearch.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingHtmlEditor.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingCountdown.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingCurrencyConversion.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingConnectTransactions.vue
+import AkauntingSwitch from './../components/AkauntingSwitch';
+import AkauntingSlider from './../components/AkauntingSlider';
+import AkauntingColor from './../components/AkauntingColor';
+import CardForm from './../components/CreditCard/CardForm';
 import AkauntingModal from './../components/AkauntingModal';
 import AkauntingMoney from './../components/AkauntingMoney';
 import AkauntingModalAddNew from './../components/AkauntingModalAddNew';
@@ -657,14 +665,6 @@ import AkauntingSelect from './../components/AkauntingSelect';
 import AkauntingSelectRemote from './../components/AkauntingSelectRemote';
 import AkauntingDate from './../components/AkauntingDate';
 import AkauntingRecurring from './../components/AkauntingRecurring';
-import AkauntingHtmlEditor from './../components/AkauntingHtmlEditor';
-import AkauntingCountdown from './../components/AkauntingCountdown';
-import AkauntingCurrencyConversion from './../components/AkauntingCurrencyConversion';
-import AkauntingConnectTransactions from './../components/AkauntingConnectTransactions';
-import AkauntingSwitch from './../components/AkauntingSwitch';
-import AkauntingSlider from './../components/AkauntingSlider';
-import AkauntingColor from './../components/AkauntingColor';
-import CardForm from './../components/CreditCard/CardForm';
 
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
@@ -720,3 +720,83 @@ add-new-component
 
 LEVEL7(3 components\AkauntingContactCard.vue)
 ALREADY
+
+LEVEL7(4 components\AkauntingCompanyEdit.vue)
+ALREADY
+
+LEVEL7(5 components\AkauntingEditItemColumns.vue)
+DYNAMICCOMPONENT {ALREADY}
+add-new-component
+
+SUBCOMPONENT {ALREADY}
+import AkauntingModalAddNew from './AkauntingModalAddNew';
+import Form from './../plugins/form';
+
+PROPS 
+placeholder,type,editColumn,
+
+DATA 
+form,edit_column,edit_html
+
+LEVEL7(6 components\AkauntingItemButton.vue)
+SUBCOMPONENT {ALREADY}
+import Vue from 'vue';
+
+import { Select, Option, OptionGroup, ColorPicker } from 'element-ui';
+
+import {Money} from 'v-money';
+import AkauntingModalAddNew from './AkauntingModalAddNew';
+import AkauntingModal from './AkauntingModal';
+import AkauntingMoney from './AkauntingMoney';
+import AkauntingRadioGroup from './AkauntingRadioGroup';
+import AkauntingSelect from './AkauntingSelect';
+import AkauntingDate from './AkauntingDate';
+
+import Form from './../plugins/form';
+
+PROPS 
+placeholder,type, price,items,addNew,addItemText,createNewItemText,noDataText,noMatchingDataText, dynamicCurrency,currency,searchCharLimit
+
+DATA 
+item_list,selected_items,changeBackground,search,show,isItemMatched,form,add_new,newItems,add_new_html,money
+
+LEVEL7(7 components\AkauntingDocumentButton.vue)
+PROPS
+placeholder,items,selectedItems,addItemText,noDataText,dynamicCurrency,currency
+
+DATA 
+item_list,search,show, money
+
+LEVEL7(8 components\AkauntingSearch.vue)
+PROPS 
+placeholder,selectPlaceholder,enterPlaceholder,searchText,operatorIsText,operatorIsNotText,noDataText,noMatchingDataText,value,filters,defaultFiltered,dateConfig,model
+
+DATA 
+filter_list, search,filtered,filter_index,filter_last_step,visible,equal,not_equal,range,option_values,selected_options,selected_operator,selected_values, values,current_value,show_date,show_button, show_close_icon,show_icon,not_equal_image,input_focus,defaultPlaceholder,dynamicPlaceholder
+
+LEVEL7(9 components\AkauntingHtmlEditor.vue)
+PROPS 
+name,value,model,disabled
+
+DATA 
+content,editorId,customToolbar
+
+LEVEL7(10 components\AkauntingCountdown.vue)
+PROPS 
+textDays,year,month,date,hour, minute,second,millisecond
+DATA 
+displayDays,displayHours,displayMinutes,displaySeconds,loaded,
+expired
+
+LEVEL7(11 components\AkauntingCurrencyConversion.vue)
+PROPS
+currencyConversionText,price,currecyCode,currencyRate,currencySymbol
+
+DATA 
+conversion,rate,texts
+
+LEVEL7(12 components\AkauntingConnectTransactions.vue)
+PROPS
+show,transaction,currency,documents,translations,modalDialogClass,animationDuration
+DATA 
+form,transaction_amount,money,totalAmount,differenceAmount
