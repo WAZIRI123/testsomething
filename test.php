@@ -125,11 +125,16 @@ $slot
 LEVEL3(3 livewire\menu\favorites.blade.php)
 Data:
 $favorites-From Controller Component
+Controller Component
+C:\wamp64\www\akaunting\app\Http\Livewire\Menu\Favorites.php
 
 LEVEL3(4 livewire\menu\notifications.blade.php)
 Data 
 $keyword-From Controller Component
 $notifications-From Controller Component
+
+Controller Component
+C:\wamp64\www\akaunting\app\Http\Livewire\Menu\Notifications.php
 
 Events:
 window.addEventListener('mark-read', event => {
@@ -653,9 +658,11 @@ C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingHtmlEditor.vue
 C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingCountdown.vue
 C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingCurrencyConversion.vue
 C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingConnectTransactions.vue
-import AkauntingSwitch from './../components/AkauntingSwitch';
-import AkauntingSlider from './../components/AkauntingSlider';
-import AkauntingColor from './../components/AkauntingColor';
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingSwitch.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingSlider.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingColor.vue
+C:\wamp64\www\akaunting\resources\assets\js\plugins\nprogress-axios.js
+{ALREADY}
 import CardForm from './../components/CreditCard/CardForm';
 import AkauntingModal from './../components/AkauntingModal';
 import AkauntingMoney from './../components/AkauntingMoney';
@@ -668,7 +675,6 @@ import AkauntingRecurring from './../components/AkauntingRecurring';
 
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
-import NProgressAxios from './../plugins/nprogress-axios';
 
 import { Select, Option, Steps, Step, Button, Link, Tooltip, ColorPicker } from 'element-ui';
 
@@ -800,3 +806,24 @@ PROPS
 show,transaction,currency,documents,translations,modalDialogClass,animationDuration
 DATA 
 form,transaction_amount,money,totalAmount,differenceAmount
+
+LEVEL7(13 components\AkauntingSwitch.vue)
+PROPS
+name,value,label,model,inputData
+
+DATA 
+enabled,selected
+
+LEVEL7(14 components\AkauntingSlider.vue)
+PROPS
+name,video, screenshots,height,arrow, pagination,type,sliderView,sliderRow
+
+LEVEL7(15 components\AkauntingColor.vue)
+PROPS
+title,placeholder,formClasses,formError,icon,name,value, model,readonly,disabled,small
+
+DATA 
+isOpen,color,colors,variants
+
+LEVEL7(16 plugins\nprogress-axios.js)
+
