@@ -90,10 +90,15 @@ SUBCOMPONENT
 C:\wamp64\www\akaunting\resources\views\components\dropdown\link.blade.php
 C:\wamp64\www\akaunting\resources\views\components\tooltip.blade.php
 C:\wamp64\www\akaunting\resources\views\livewire\menu\favorites.blade.php
+C:\wamp64\www\akaunting\resources\views\livewire\menu\profile.blade.php
 C:\wamp64\www\akaunting\resources\views\livewire\menu\notifications.blade.php
 C:\wamp64\www\akaunting\resources\views\livewire\menu\settings.blade.php
 C:\wamp64\www\akaunting\resources\views\livewire\menu\neww.blade.php
 C:\wamp64\www\akaunting\resources\views\components\loading\menu.blade.php
+C:\wamp64\www\akaunting\resources\views\components\button\hover.blade.php
+C:\wamp64\www\akaunting\resources\views\components\link\index.blade.php
+MIDDLEWARE
+C:\wamp64\www\akaunting\app\Http\Middleware\AdminMenu.php
 
 Data:
 $notification_count-From Controller Component
@@ -170,6 +175,42 @@ $neww-From Controller Component
 
 LEVEL3(7 components\loading\menu.blade.php)
 No just html
+
+LEVEL3(8 livewire\menu\profile.blade.php)
+DATA 
+menu('profile')
+$active_menu-FROM CONTROLLER COMPONENT
+
+GlobalData
+var is_profile_menu = {{ $active_menu }}
+
+LEVEL3(9 components\button\hover.blade.php)
+DATA 
+$color-From Controller Component
+$groupHover-From Controller Component
+
+LEVEL3(10 components\link\index.blade.php)
+DATA 
+$class-From Controller Component
+$attributes-FROM attributes
+
+LEVEL3(11 Http\Middleware\AdminMenu.php)
+EVENT
+menu('admin')-Events\Menu\AdminCreated.php
+
+
+LEVEL4(1 Events\Menu\AdminCreated.php )
+LISTENER 
+C:\wamp64\www\akaunting\app\Listeners\Menu\ShowInAdmin.php
+
+DATA 
+$menu-From Constructor
+
+LEVEL5(1 app\Listeners\Menu\ShowInAdmin.php)
+DATA 
+$event-FROM EVENT
+
+
 
 LEVEL2(3 layouts\admin\header.blade.php)
 
