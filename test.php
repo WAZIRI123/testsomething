@@ -164,14 +164,39 @@ C:\wamp64\www\akaunting\resources\views\components\tooltip.blade.php (Explainati
 LEVEL3(5 livewire\menu\settings.blade.php)
 GlobalData 
 var is_settings_menu = {{ $active_menu }};
+
+Event
+menu('settings')-Events\Menu\SettingsCreated.php
 Data 
 $keyword-From Controller Component
 $settings-From Controller Component
+
+LEVEL4(1 Menu\SettingsCreated.php)
+LISTENER 
+C:\wamp64\www\akaunting\app\Listeners\Menu\ShowInSettings.php
+DATA 
+$menu-from parent
+
+LEVEL5(1 Menu\ShowInSettings.php)
+DATA 
+$event-From Parent 
 
 LEVEL3(6 livewire\menu\neww.blade.php)
 Data 
 $keyword-From Controller Component
 $neww-From Controller Component
+Event 
+menu('neww')-Events\Menu\NewwCreated.php
+
+LEVEL4(1 Menu\NewwCreated.php)
+LISTENER 
+C:\wamp64\www\akaunting\app\Listeners\Menu\ShowInNeww.php
+DATA 
+$menu-from parent
+LEVEL5(1 Menu\ShowInNeww.php)
+DATA 
+$event-From Parent 
+
 
 LEVEL3(7 components\loading\menu.blade.php)
 No just html
@@ -183,6 +208,18 @@ $active_menu-FROM CONTROLLER COMPONENT
 
 GlobalData
 var is_profile_menu = {{ $active_menu }}
+
+EVENT 
+menu('profile')-Events\Menu\ProfileCreated.php
+
+LEVEL4(1 Menu\ProfileCreated.php)
+LISTENER 
+C:\wamp64\www\akaunting\app\Listeners\Menu\ShowInProfile.php
+DATA 
+$menu-from parent
+LEVEL5(1 Menu\ShowInProfile.php)
+DATA 
+$event-From Parent 
 
 LEVEL3(9 components\button\hover.blade.php)
 DATA 
@@ -198,7 +235,6 @@ LEVEL3(11 Http\Middleware\AdminMenu.php)
 EVENT
 menu('admin')-Events\Menu\AdminCreated.php
 
-
 LEVEL4(1 Events\Menu\AdminCreated.php )
 LISTENER 
 C:\wamp64\www\akaunting\app\Listeners\Menu\ShowInAdmin.php
@@ -210,12 +246,11 @@ LEVEL5(1 app\Listeners\Menu\ShowInAdmin.php)
 DATA 
 $event-FROM EVENT
 
-
-
 LEVEL2(3 layouts\admin\header.blade.php)
 
 SUBCOMPONENT
 C:\wamp64\www\akaunting\resources\views\components\suggestions.blade.php
+C:\wamp64\www\akaunting\resources\views\components\title.blade.php
 
 Data
 $title-it slot from parent
@@ -224,10 +259,15 @@ $info-it slot from parent
 $buttons-it slot from parent
 $moreButtons-it slot from parent
 $favorite-it slot from parent
-SUBCOMPONENT
-C:\wamp64\www\akaunting\resources\views\components\title.blade.php
 
-LEVEL3(1 views\components\title.blade.php)
+LEVEL3(1 views\components\suggestions.blade.php)
+Data
+$suggestions-From Component
+
+SUBCOMPONENT
+link-{{ALREADY}}
+
+LEVEL3(2 views\components\title.blade.php)
 Data
 $slot-it slot from parent
 
@@ -251,8 +291,26 @@ LEVEL2(5 components\layouts\admin\content.blade.php)
 Data
 $slot-it slot from parent
 SUBCOMPONENT
-<notifications></notifications>
+C:\wamp64\www\akaunting\resources\assets\js\components\NotificationPlugin\Notifications.vue
 <component v-bind:is="component"></component>(From Vue js)
+LEVEL3(1 components\NotificationPlugin\Notifications.vue )
+SUBCOMPONENT 
+C:\wamp64\www\akaunting\resources\assets\js\components\NotificationPlugin\Notification.vue
+import { SlideYUpTransition } from 'vue2-transitions';
+PROPS 
+transitionDuration,overlap
+DATA 
+notifications-FROM STORE
+
+LEVEL4(1 components\NotificationPlugin\Notification.vue )
+PROPS 
+message,title,icon,verticalAlign,horizontalAlign, type,timeout,timestamp,component,showClose,closeOnClick,clickHandler
+
+DATA 
+elmHeight,typeByClass,textByClass
+
+Dynamic Component 
+contentRender-based on passed from parent
 
 LEVEL2(6 livewire\notification\browser\firefox.blade.php)
 Data 
@@ -265,8 +323,13 @@ GlobalData:
 window.livewire_app_url = {{ company_id() }};
 
 javascript Variable:
-toggleButton ,navbarMenu,mainContent,detailsEL, sectionContent
-sideBar,menuBackground,menuClose,notification_count 
+toggleButton, menus,navbarMenu,mainContent,detailsEL, sectionContent
+sideBar,menuBackground,menuClose,notification_count ,menuClose
+
+LEVEL2(9 components\layouts\admin\notifications.blade.php)
+DATA 
+$notifications-FROM CONTROLLER COMPONENT
+$notify-FROM CONTROLLER COMPONENT
 
 LEVEL1(2 components\documents\form\content.blade.php)
 SUBCOMPONENT
@@ -318,7 +381,7 @@ SUBCOMPONENT
 C:\wamp64\www\akaunting\resources\views\components\icon.blade.php
 
 DATA 
-$attributes-From Prop
+$attributes-From $attributes
 $icon-from Controller component
 $type-From Parent Component
 $body -slots
@@ -518,7 +581,7 @@ add-new-component
 LEVEL6(1 vue2-transitions)
 it is built in
 
-LEVEL6(2 AkauntingModal)
+LEVEL6(2 js\components\AkauntingModal.vue)
 PROPS
 show,modalDialogClass,title,message,button_cancel, button_delete, animationDuration,modalPositionTop
 
@@ -742,7 +805,7 @@ DATA
 files,configurations
 
 LEVEL7(2 components\AkauntingContactCard.vue)
-SUBCOMPONENT
+SUBCOMPONENT{ALREADY}
 import Vue from 'vue';
 
 import { Select, Option, OptionGroup, ColorPicker } from 'element-ui';
