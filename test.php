@@ -556,7 +556,7 @@ DynamicComponent
 
 LEVEL5(1 components\AkauntingModalAddNew.vue)
 PROPS
-show,is_component,title, message, buttons,animationDuration,modalDialogClass,modalPositionTop
+show,is_component,title, message{html for form }, buttons,animationDuration,modalDialogClass,modalPositionTop
 
 SUBCOMPONENT
 import { SlideYUpTransition } from "vue2-transitions";
@@ -930,4 +930,469 @@ DATA
 isOpen,color,colors,variants
 
 LEVEL7(16 plugins\nprogress-axios.js)
+
+LEVEL2(3 components\documents\form\main.blade.php)
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\form\section\index.blade.php
+C:\wamp64\www\akaunting\resources\views\components\form\section\head.blade.php
+
+C:\wamp64\www\akaunting\resources\views\components\documents\form\metadata.blade.php
+C:\wamp64\www\akaunting\resources\views\components\documents\form\items.blade.php
+
+C:\wamp64\www\akaunting\resources\views\components\documents\form\totals.blade.php
+
+C:\wamp64\www\akaunting\resources\views\components\documents\form\note.blade.php
+
+DATA 
+$type-Parent Component
+
+LEVEL3(1 components\form\section\index.blade.php)
+DATA 
+$attributes-From attributes
+$head-From Slot
+$body-From Slot
+$foot-From Slot
+
+LEVEL3(2 components\form\section\head.blade.php)
+DATA 
+$description-Parent Component
+$title-Parent Component
+
+LEVEL3(3 components\documents\form\metadata.blade.php)
+SUBCOMPONENT 
+C:\wamp64\www\akaunting\resources\views\components\form\label.blade.php
+
+C:\wamp64\www\akaunting\resources\views\components\documents\form\contact.blade.php
+
+C:\wamp64\www\akaunting\resources\views\components\form\group\date.blade.php
+C:\wamp64\www\akaunting\resources\views\components\form\group\text.blade.php
+C:\wamp64\www\akaunting\resources\views\components\form\input\hidden.blade.php
+
+
+DATA 
+$textContact -FROM CONTROLLER COMPONENT
+$contact-FROM CONTROLLER COMPONENT
+$contacts-FROM CONTROLLER COMPONENT
+$searchContactRoute-FROM CONTROLLER COMPONENT
+$createContactRoute-FROM CONTROLLER COMPONENT
+$textAddContact-FROM CONTROLLER COMPONENT
+$textCreateNewContact-FROM CONTROLLER COMPONENT
+$textEditContact-FROM CONTROLLER COMPONENT
+$textContactInfo-FROM CONTROLLER COMPONENT
+$textChooseDifferentContact-FROM CONTROLLER COMPONENT
+$textIssuedAt-FROM CONTROLLER COMPONENT
+$issuedAt-FROM CONTROLLER COMPONENT
+$textDocumentNumber-FROM CONTROLLER COMPONENT
+$documentNumber-FROM CONTROLLER COMPONENT
+$textDueAt-FROM CONTROLLER COMPONENT
+$dueAt-FROM CONTROLLER COMPONENT
+$periodDueAt-FROM CONTROLLER COMPONENT
+$textOrderNumber-FROM CONTROLLER COMPONENT
+$orderNumber-FROM CONTROLLER COMPONENT
+$hideDueAt-FROM CONTROLLER COMPONENT
+$hideOrderNumber-FROM CONTROLLER COMPONENT
+$hideDocumentNumber-FROM CONTROLLER COMPONENT
+$hideIssuedAt-FROM CONTROLLER COMPONENT
+
+LEVEL4(1
+components\form\label.blade.php)
+ALREADY
+LEVEL4(2
+components\documents\form\contact.blade.php)
+
+SUBCOMPONENT 
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingContactCard.vue{ALREADY}
+
+DATA 
+$placeholder-FROM PARENT
+$searchRoute-FROM PARENT
+$createRoute-FROM PARENT
+$contacts-FROM PARENT
+$contact-FROM PARENT
+$textAddContact-FROM PARENT
+$textCreateNewContact-FROM PARENT
+$textEditContact-FROM PARENT
+$textContactInfo-FROM PARENT
+$textChooseDifferentContact-FROM PARENT
+$error-FROM PARENT
+
+LEVEL4(3 components\form\group\date.blade.php)
+DATA 
+$name-FROM PARENT
+$formGroupClass-FROM PARENT
+$attributes-FROM CONTROLLER COMPONENT
+$readonly-FROM CONTROLLER COMPONENT
+$required-FROM CONTROLLER COMPONENT
+$disabled-FROM CONTROLLER COMPONENT
+$group_class-FROM CONTROLLER COMPONENT
+$icon-FROM CONTROLLER COMPONENT
+$label-FROM CONTROLLER COMPONENT
+$placeholder-FROM CONTROLLER COMPONENT
+
+SUBCOMPONENT 
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingDate.vue{ALREADY}
+
+LEVEL4(4 components\form\group\text.blade.php)
+{ALREADY}
+
+LEVEL4(5 components\form\input\hidden.blade.php)
+
+DATA 
+$name-FROM PARENT
+$id-FROM CONTROLLER COMPONENT
+$valueFROM CONTROLLER COMPONENT
+$placeholderFROM CONTROLLER COMPONENT
+$requiredFROM CONTROLLER COMPONENT
+$disabledFROM CONTROLLER COMPONENT
+$readonlyFROM CONTROLLER COMPONENT
+$attributesFROM CONTROLLER COMPONENT
+
+LEVEL3(4 components\documents\form\items.blade.php)
+DATA 
+$hideEditItemColumns
+$type-FROM PARENT
+$hideItems-FROM CONTROLLER COMPONENT
+$hideItemName-FROM CONTROLLER COMPONENT
+$textItemName-FROM CONTROLLER COMPONENT
+$hideItemDescription-FROM CONTROLLER COMPONENT
+$textItemDescription-FROM CONTROLLER COMPONENT
+$textItemQuantity-FROM CONTROLLER COMPONENT
+$hideItemQuantity-FROM CONTROLLER COMPONENT
+$textItemPrice-FROM CONTROLLER COMPONENT
+$hideItemPrice-FROM CONTROLLER COMPONENT
+$textItemAmount-FROM CONTROLLER COMPONENT
+$isSalePrice-FROM CONTROLLER COMPONENT
+$isPurchasePrice-FROM CONTROLLER COMPONENT
+$searchCharLimit-FROM CONTROLLER COMPONENT
+
+SUBCOMPONENT 
+C:\wamp64\www\akaunting\resources\views\components\documents\form\item-columns.blade.php
+
+C:\wamp64\www\akaunting\resources\views\components\documents\form\line-item.blade.php
+
+C:\wamp64\www\akaunting\resources\views\components\documents\form\item-button.blade.php
+
+LEVEL4(1 components\documents\form\item-columns.blade.php)
+
+DATA 
+$type-FROM PARENT
+
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingEditItemColumns.vue
+LEVEL5(1 components\AkauntingEditItemColumns.vue)
+SUBCOMPONENT{ALREADY}
+import AkauntingModalAddNew from './AkauntingModalAddNew';
+
+import Form from './../plugins/form';
+
+PROPS 
+placeholder
+type
+editColumn
+
+DATA 
+form,edit_column
+
+DYNAMICCOMPONENT{ALREADY}
+add-new-component
+
+LEVEL4(2 components\documents\form\line-item.blade.php)
+
+DATA 
+$hideItems-FROM CONTROLLER COMPONENT
+$hideItemName
+$hideItemDescription
+$hideItemQuantity
+$event
+$currency
+$hideDiscount
+
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\form\input\money.blade.php
+
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingSelect.vue
+
+C:\wamp64\www\akaunting\resources\views\components\button\hover.blade.php
+
+
+LEVEL5(1 components\form\input\money.blade.php)
+
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingMoney.vue{ALREADY}
+
+DATA 
+$name-FROM PARENT
+$attributes-FROM $attributes
+$formGroupClass-FROM PARENT
+$required-FROM CONTROLLER COMPONENT
+$readonly-FROM CONTROLLER COMPONENT
+$disabled-FROM CONTROLLER COMPONENT
+$icon-FROM CONTROLLER COMPONENT
+$currency-FROM PARENT
+
+
+LEVEL5(2 components\AkauntingSelect.vue)
+{ALREADY}
+
+LEVEL5(3 components\button\hover.blade.php)
+{ALREADY}
+
+LEVEL4(3 components\documents\form\item-button.blade.php)
+
+DATA 
+$type-FROM PARENT
+$price-FROM CONTROLLER COMPONENT
+$items-FROM CONTROLLER COMPONENT
+$searchCharLimit-FROM PARENT
+$event
+
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingItemButton.vue
+
+LEVEL5(1 components\AkauntingItemButton.vue)
+{ALREADY}
+
+LEVEL3(5 components\documents\form\totals.blade.php)
+
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\form\input\money.blade.php{ALREADY}
+
+C:\wamp64\www\akaunting\resources\views\components\button\hover.blade.php{ALREADY}
+
+C:\wamp64\www\akaunting\resources\views\components\form\group\text.blade.php{ALREADY}
+
+C:\wamp64\www\akaunting\resources\views\components\form\input\hidden.blade.php{ALREADY}
+
+C:\wamp64\www\akaunting\resources\views\components\form\group\select.blade.php
+
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingCurrencyConversion.vue
+{ALREADY}
+
+DATA 
+$currency
+$document
+$event
+
+LEVEL4(1 components\form\group\select.blade.php)
+
+DATA 
+$formGroupClass-FROM PARENT
+$required-FROM CONTROLLER COMPONENT
+$readonly-FROM CONTROLLER COMPONENT
+$disabled-FROM CONTROLLER COMPONENT
+$name-FROM PARENT
+$remote-FROM CONTROLLER COMPONENT
+$attributes-From $attributes
+$label-FROM CONTROLLER COMPONENT
+$icon-FROM CONTROLLER COMPONENT
+$event-From emitted event
+$addNew-FROM CONTROLLER COMPONENT
+$placeholder
+$options-FROM PARENT
+$searchText-FROM CONTROLLER COMPONENT
+$selected-FROM PARENT
+$multiple-FROM CONTROLLER COMPONENT
+$forceDynamicOptionValue-FROM PARENT
+
+SUBCOMPONENT {ALREADY}
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingSelectRemote.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingSelect.vue
+
+LEVEL4(2 components\AkauntingCurrencyConversion.vue)
+{ALREADY}
+
+LEVEL3(6 components\documents\form\note.blade.php)
+
+DATA 
+$notes
+
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\form\group\textarea.blade.php
+
+LEVEL4(1 components\form\group\textarea.blade.php)
+
+DATA 
+$formGroupClass-FROM PARENT
+$required-FROM CONTROLLER COMPONENT
+$readonly-FROM CONTROLLER COMPONENT
+$disabled-FROM CONTROLLER COMPONENT
+$attributes-FROM attributes
+$label-FROM CONTROLLER COMPONENT
+$name--FROM PARENT
+$id-FROM CONTROLLER COMPONENT
+$value-FROM PARENT
+$placeholder -FROM CONTROLLER COMPONENT
+$rows-INSIDE IT SELF
+$custom_attributes
+
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\form\label.blade.php{ALREADY}
+
+C:\wamp64\www\akaunting\resources\views\components\form\input\textarea.blade.php
+
+C:\wamp64\www\akaunting\resources\views\components\form\error.blade.php{ALREADY}
+
+LEVEL5(1 components\form\input\textarea.blade.php)
+
+DATA 
+$name-FROM PARENT
+$id-FROM PARENT
+$class-FROM IT SELF
+$rows-FROM PARENT
+$placeholder -FROM PARENT
+$disabled-FROM PARENT
+$required-FROM PARENT
+$readonly-FROM PARENT
+$attributes-FROM attributes
+$value-FROM PARENT
+
+LEVEL2(4 components\documents\form\recurring.blade.php)
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\form\section\index.blade.php {ALREADY}
+C:\wamp64\www\akaunting\resources\views\components\form\section\head.blade.php{ALREADY}
+
+C:\wamp64\www\akaunting\resources\views\components\form\group\recurring.blade.php
+
+DATA 
+$document-FROM PARENT
+$type-FROM PARENT
+
+LEVEL3(1 components\form\group\recurring.blade.php)
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingRecurring.vue{ALREADY}
+
+DATA 
+$customFrequenc-FROM PARENT
+$event-FROM PARENT EVENT
+$limit-FROM PARENT
+$sendEmailShow -FROM CONTROLLER COMPONENT
+$sendEmail-FROM CONTROLLER COMPONENT
+$type-FROM PARENT
+$limit-FROM PARENT
+$startedValue-FROM PARENT
+$frequencies-FROM PARENT
+$limitDateValue-FROM PARENT
+$limitCount-FROM PARENT
+
+LEVEL2(5 components\documents\form\advanced.blade.php)
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\form\accordion\index.blade.php {ALREADY}
+
+C:\wamp64\www\akaunting\resources\views\components\form\accordion\head.blade.php{ALREADY}
+
+C:\wamp64\www\akaunting\resources\views\components\form\group\textarea.blade.php{ALREADY}
+
+C:\wamp64\www\akaunting\resources\views\components\form\group\category.blade.php
+
+C:\wamp64\www\akaunting\resources\views\components\form\input\hidden.blade.php{ALREADY}
+
+C:\wamp64\www\akaunting\resources\views\components\form\group\attachment.blade.php
+
+DATA 
+$footer-From Controller Component
+$type-From parent
+$classFooter-From Controller Component
+$hideCategory-From Controller Component
+$classCategory-From Controller Component
+$typeCategory-From Controller Component
+$categoryId-From Controller Component
+$hideAttachment-From Controller Component
+$classAttachment-From Controller Component
+
+LEVEL3(1 components\form\group\category.blade.php)
+
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\form\group\select.blade.php{ALREADY}
+DATA 
+$remoteAction-FROM CONTROLLER COMPONENT
+$path-FROM CONTROLLER COMPONENT
+$attributes-FROM attributes
+$name-FROM CONTROLLER COMPONENT
+$categories-FROM CONTROLLER COMPONENT
+$selected-FROM PARENT
+$multiple-FROM CONTROLLER COMPONENT
+$group-FROM CONTROLLER COMPONENT
+$formGroupClass-FROM CONTROLLER COMPONENT
+$required-FROM CONTROLLER COMPONENT
+$readonly-FROM CONTROLLER COMPONENT
+$disabled-FROM CONTROLLER COMPONENT
+
+LEVEL3(2 components\form\group\attachment.blade.php)
+DATA
+$file_types-FROM CONTROLLER COMPONENT
+
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\form\group\file.blade.php{ALREADY}
+
+LEVEL2(6 components\form\input\hidden.blade.php)
+{ALREADY}
+
+LEVEL2(7 components\documents\form\buttons.blade.php)
+
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\form\section\index.blade.php{ALREADY}
+
+C:\wamp64\www\akaunting\resources\views\components\form\buttons.blade.php
+
+C:\wamp64\www\akaunting\resources\views\components\button\index.blade.php
+
+DATA 
+$hideSendTo-FROM CONTROLLER COMPONENT
+$cancelRoute-FROM CONTROLLER COMPONENT
+
+LEVEL3(1 components\form\buttons.blade.php)
+
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\button\index.blade.php{ALREADY}
+
+DATA 
+$withoutCancel-FROM CONTROLLER COMPONENT
+$cancel-FROM CONTROLLER COMPONENT
+$cancelText-FROM CONTROLLER COMPONENT
+$saveDisabled-FROM CONTROLLER COMPONENT
+$saveLoading-FROM CONTROLLER COMPONENT
+
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\button\loading.blade.php
+
+LEVEL4(1 components\button\loading.blade.php)
+
+DATA 
+$action-FROM PARENT
+$slot -FROM PARENT SLOT
+
+
+LEVEL3(2  components\button\index.blade.php)
+
+DATA 
+$class-FROM PARENT
+$type-FROM PARENT
+$slot-SLOT FROM PARENT
+
+LEVEL1(3 components\documents\script.blade.php)
+
+DATA 
+$currencies-From CONTROLLER COMPONENT
+$taxes-From CONTROLLER COMPONENT
+$items-From CONTROLLER COMPONENT
+$file-From CONTROLLER COMPONENT
+$folder-From CONTROLLER COMPONENT
+$alias-From CONTROLLER COMPONENT
+
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\script.blade.php
+
+LEVEL2(1 components\script.blade.php)
+
+DATA 
+$source-From CONTROLLER COMPONENT
+
+
+
+
+
+
+
+
+
 
