@@ -1361,9 +1361,7 @@ DATA
 $action-FROM PARENT
 $slot -FROM PARENT SLOT
 
-
 LEVEL3(2  components\button\index.blade.php)
-
 DATA 
 $class-FROM PARENT
 $type-FROM PARENT
@@ -1375,24 +1373,119 @@ DATA
 $currencies-From CONTROLLER COMPONENT
 $taxes-From CONTROLLER COMPONENT
 $items-From CONTROLLER COMPONENT
-$file-From CONTROLLER COMPONENT
-$folder-From CONTROLLER COMPONENT
-$alias-From CONTROLLER COMPONENT
+
+FIND VALUE OF THESE FILES
+type=invoice
+alias=''
+config('type.' . static::OBJECT_TYPE . '.' . $type . '.alias')=
+config('type . document . invoice .alias')=''
+
+folder=''
+config('type.' . static::OBJECT_TYPE . '.' . $type . '.script.folder')=config('type. document .invoice.script.folder')=common
+
+file=''
+config('type.' . static::OBJECT_TYPE . '.' . $type . '.script.file')=config('type.document . invoice.script.file')=documents
+
+$file-From CONTROLLER COMPONENT=documents
+$folder-From CONTROLLER COMPONENT=common
+$alias-From CONTROLLER COMPONENT=''
+
 
 SUBCOMPONENT
 C:\wamp64\www\akaunting\resources\views\components\script.blade.php
 
 LEVEL2(1 components\script.blade.php)
 
+JS FILE
+C:\wamp64\www\akaunting\resources\assets\js\views\common\documents.js
+
 DATA 
-$source-From CONTROLLER COMPONENT
+FIND VALUE OF SOURCE 
+$source-From CONTROLLER COMPONENT=common/documents.min.js
+
+LEVEL3(1 js\views\common\documents.js)
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\assets\js\plugins\dashboard-plugin.js
+import { addDays, format } from 'date-fns';
+C:\wamp64\www\akaunting\resources\assets\js\plugins\functions.js
+
+C:\wamp64\www\akaunting\resources\assets\js\mixins\global.js
+{ALREADY}
+
+C:\wamp64\www\akaunting\resources\assets\js\plugins\form.js
+{ALREADY}
+C:\wamp64\www\akaunting\resources\assets\js\plugins\bulk-action.js
+import draggable from 'vuedraggable';
+
+DATA 
+form,bulk_action,totals,transaction,edit,colspan,discount, tax,discounts, tax_id,items,selected_items,taxes, page_loaded,currencies,min_due_date,currency_symbol,dropdown_visible,dynamic_taxes,show_discount,show_discount_text,delete_discount,regex_condition,email_template,send_to
 
 
+LEVEL4(1 js\plugins\dashboard-plugin.js)
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\assets\js\polyfills.js
+// Notifications plugin. Used on Notifications page
+C:\wamp64\www\akaunting\resources\assets\js\components\NotificationPlugin\Notifications.vue
+// Validation plugin used to validate forms
+import VeeValidate from 'vee-validate';{ALREADY}
+// A plugin file where you could register global components used across the app
+// A plugin file where you could register global directives
+C:\wamp64\www\akaunting\resources\assets\js\plugins\globalComponents.js
 
+// element ui language configuration
+import lang from 'element-ui/lib/locale/lang/en';
+import locale from 'element-ui/lib/locale';
 
+LEVEL5(1 resources\assets\js\polyfills.js)
+Nothing  JUST polyfills
 
+LEVEL5(2 js\components\NotificationPlugin\Notifications.vue)
+{ALREADY}
 
+LEVEL5(3 js\plugins\globalComponents.js)
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\assets\js\components\Inputs\BaseInput.vue {ALREADY}
+C:\wamp64\www\akaunting\resources\assets\js\components\Cards\Card.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\Modal.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\Cards\StatsCard.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\BaseButton.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\Badge.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\BaseAlert.vue
+import { Input, Tooltip, Popover } from 'element-ui';
 
+LEVEL6(1 js\components\Cards\Card.vue)
+PROPS 
+type,gradient,hover,shadow,shadowSize,noBody,bodyClasses,headerClasses,footerClasses
 
+LEVEL6(2 js\components\Modal.vue)
+SUBCOMPONENT
+import { SlideYUpTransition } from "vue2-transitions";
 
+PROPS 
+show,showClose,type,modalClasses,size,modalContentClasses,gradient, headerClasses,bodyClasses,footerClasses,animationDuration,
+
+LEVEL6(3 js\components\Cards\StatsCard.vue)
+PROPS 
+type,icon,title,subTitle,iconClasses
+
+LEVEL6(4 js\components\BaseButton.vue)
+PROPS 
+tag,round,icon,block,loading,wide,disabled,type,nativeType,size,outline,link
+
+LEVEL6(5 js\components\Badge.vue)
+PROPS 
+tag,rounded,circle,icon,type,size
+
+LEVEL6(6 js\components\BaseAlert.vue)
+PROPS 
+type,dismissible,icon
+
+DATA 
+visible
+
+LEVEL4(2 js\plugins\functions.js)
+IT JUST NORMAL FUNCTION
+
+LEVEL4(3 js\plugins\bulk-action.js)
+IT JUST JS FUNCTIONS FOR BULK ACTIONS
 
