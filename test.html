@@ -1,0 +1,305 @@
+@extends('layouts.app')
+
+@section('title', 'Kilimanjaro Christian Medical Centre')
+
+@section('content')
+<section class="w3l-main-slider" id="home">
+    <div class="companies20-content">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+        <div class="carousel-item active">
+<section class="hero medical-care d-flex align-items-center text-center" style="background-image: url('{{ asset('images/administration/KIBIONGO1.jpg') }}'); background-size: cover; background-repeat: no-repeat; background-position: center center; height: 100vh;" >
+  <div class="overlay"></div>
+  <div class="container h-100 medical-container" style="position: relative; z-index: 10; ">
+    <h1 class="text-white " style="font-family: mulish, arial, helvetica, sans-serif; font-size: 44px;">Medical Care for Tanzania</h1>
+    <span class="text-white" style="font-family: mulish, arial, helvetica, sans-serif; font-size: 21px;">Help serve an urgent need for hospital supplies and basic care interventions in Northern Tanzania.</span> 
+
+    <div class="card mt-3 mb-1" style=" z-index: 10 !important;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="{{ asset('images/administration/KIBIONGO1.jpg') }}" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">$11,798 / $50,000</h5>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-4">
+                <h6>24%</h6>
+                <p class="text-muted">
+            OF GOAL</p>
+              </div>
+              <div class="col-4">
+                <h6>22</h6>
+                <p class="text-muted">
+          SUPPORTERS</p>
+              </div>
+              <div class="col-4">
+                   <h6 id="countdown"></h6>
+                <p class="text-muted">
+                DAYS LEFT</p>
+              </div>
+            </div>
+            <a href="https://support.partnersforworldhealth.org/campaign/medical-care-for-kilimanjaro/c473430" class="btn btn-primary mt-3">DONATE NOW</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+     </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+  
+  
+    <!-- w3l-features-photo-7 -->
+
+    <section class="w3l-features-photo-7 py-5">
+        <div class="w3l-features-photo-7_sur py-lg-5 py-sm-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 w3l-features-photo-7_top-left">
+                        <h4>Your Health. Our Priority!
+                        </h4>
+                        <p>One of the key factors that distinguish a thriving community is its ability to deliver excellent
+                            medical care to every resident and community member in which it serves. If the character of a
+                            community is defined by many factors, how well it answers the health care needs of its
+                            population is surely one of the most important. Simply put, quality comprehensive health care is
+                            a right!
+                        </p>
+                        <div class="row">
+                            <div class="col-lg-8 content-left">
+                                <h4 style="margin-bottom: 2px !important">Vision</h4>
+                                <p class="mb-1">A super specialized hospital touching and changing lives.</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-8 content-left">
+                                <h4 style="margin-bottom: 2px !important">Mission</h4>
+                                <p class="mb-1">To provide accessible, reliable and people-centered high-quality health care services, training and
+research outputs guided by Christ love. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 w3l-features-photo-7_top-right mt-lg-0 mt-4">
+                        <img src="{{ asset('images/administration/gileard.JPG') }}" class="img-fluid" alt="" />
+                        <p>Prof. Gileard Masenga</p>
+                        <i>Executive Director Kilimanjaro Christian Medical Centre</i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- services page block 1 -->
+    <section class="w3l-counter-6">
+        <!-- /counter-6-->
+        <div class="conuter-66-info py-5">
+            <div class="container py-lg-5">
+                <h3 class="title text-center mb-4"> <span style="border-bottom: 5px solid #5b81ce;">Our</span> Core values</h3>
+                <p class="title-text text-center">We are guided by our mission to improve the health of our patients and
+                    community through innovation, and excellence in care, education, research and service.</p>
+                <div class="counter-grids-info row text-center">
+                    <div class="col-lg-3 col-6">
+                        <div class="counter-gd">
+                            <img src="{{ asset('images/doctors.png') }}" class="img-fluid">
+                            <h6>Quality</h6>
+                            <p>We pursue superior performance and quality to build and preserve the Hospital’s clinical and
+                                organizational strength.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6">
+                        <div class="counter-gd">
+                            <img src="{{ asset('images/patients.png') }}" class="img-fluid">
+                            <h6>Empathy</h6>
+                            <p>We are devoted to providing a warm, friendly and caring environment in which patients can
+                                recover and get well soon.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6">
+                        <div class="counter-gd">
+                            <img src="{{ asset('images/van.png') }}" class="img-fluid">
+                            <h6>Dedication</h6>
+                            <p>We are dedicated to offering patients and their families quality and efficient health care
+                                and medical services.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-6">
+                        <div class="counter-gd">
+                            <img src="{{ asset('images/award.png') }}" class="img-fluid">
+                            <h6>Inspiration</h6>
+                            <p>We are an institution that inspires our staff and personnel to achieve the extraordinary and
+                                develop the best careers.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //counter-6-->
+    <section class="w3l-features py-5">
+        <div class="container py-lg-5 py-3">
+            <div class="row main-cont-wthree-2">
+                <div class="col-lg-6 feature-grid-right">
+                    <img src="{{ asset('images/care.JPG') }}" class="img-fluid" alt="healthcare">
+                </div>
+                <div class="col-lg-6 feature-grid-left mt-lg-0 mt-sm-5 mt-4">
+                    <h4 class="title-left">Your Safety is Our Priority</h4>
+                    <p class="text-para">At KCMC, nothing is more important to us than your health and safety, today
+                        and each day moving forward.
+
+                        <br> And as we begin to open our doors and step out into this next normal world, we want to assure
+                        you that we are taking thoughtful steps to make sure our spaces remain safe for all patients.
+                    </p>
+                    <div class="stats_main text-center">
+                        <div class="w3l-stats">
+                            <div class="">
+                                <img src="{{ asset('images/patients.png') }}" class="img-fluid">
+                            </div>
+                            <div class="info-feature mt-3">
+                                <h5 class="w3l-stats-txt">1,754</h5>
+                                <p class="stats-text">Patients</p>
+                            </div>
+                        </div>
+                        <div class="w3l-stats">
+                            <div class="">
+                                <img src="{{ asset('images/services.png') }}" class="img-fluid">
+                            </div>
+                            <div class="info-feature mt-3">
+                                <h5 class="w3l-stats-txt">30+&nbsp;</h5>
+                                <p class="stats-text">Services</p>
+                            </div>
+                        </div>
+                        <div class="w3l-stats">
+                            <div class="">
+                                <img src="{{ asset('images/award.png') }}" class="img-fluid">
+                            </div>
+                            <div class="info-feature mt-3">
+                                <h5 class="w3l-stats-txt">50+</h5>
+                                <p class="stats-text">Awards</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- services page block 1 -->
+    <!-- //apply-6-->
+    <section class="w3l-call-to-action_9 py-5">
+        <div class="call-w3">
+            <div class="container">
+                <div class=" main-cont-wthree-2">
+                    <div class="left-contect-calls text-center">
+                        <h3 class="title mb-sm-5 mb-4">Official Partners</h3>
+                        <div class="call-grids-w3 ">
+                            <a href="#" class="">
+                                <img src="{{ asset('images/insurances/aartzlogo.png') }}" class="img-fluid" alt="">
+                            </a>
+
+                            <a href="#" class="">
+                                <img src="{{ asset('images/insurances/nhiflogo.png') }}" class="img-fluid" alt="">
+                            </a>
+                            <a href="#" class="">
+                                <img src="{{ asset('images/insurances/magerezalogo.png') }}" class="img-fluid"
+                                    alt="">
+                            </a>
+                            <a href="#" class="">
+                                <img src="{{ asset('images/insurances/niclogo.png') }}" class="img-fluid" alt="">
+                            </a>
+                            <a href="#" class="">
+                                <img src="{{ asset('images/insurances/nssflogo.png') }}" class="img-fluid" alt="">
+                            </a>
+                            <a href="#" class="">
+                                <img src="{{ asset('images/insurances/policelogo.png') }}" class="img-fluid"
+                                    alt="">
+                            </a>
+                            <a href="#" class="">
+                                <img src="{{ asset('images/insurances/tpclogo.png') }}" class="img-fluid" alt="">
+                            </a>
+                            <a href="#" class="">
+                                <img src="{{ asset('images/insurances/jubileelogo.png') }}" class="img-fluid"
+                                    alt="">
+                            </a>
+                            <a href="#" class="">
+                                <img src="{{ asset('images/insurances/MHIlogo.png') }}" class="img-fluid" alt="">
+                            </a>
+                            <a href="#" class="">
+                                <img src="{{ asset('images/insurances/strategieslogo.png') }}" class="img-fluid"
+                                    alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- <div id="annModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h5 class="modal-title text-center">8<sup>TH</sup> ANNUAL GALA | SATURDAY APRIL 23, 2022</h5>
+                    <img src="{{ asset('images/pa.jpeg') }}" class="img-fluid" alt="">
+                    <P>Further information is available at <a href="https://tanzaniacancercare.org/">Tanzania Cancer
+                            Care</a></P>
+                    <div class="modal-footer">
+                        <a href="https://www.eservicepayments.com/cgi-bin/Vanco_ver3.vps?appver3=wWsk24ZWJSTZKsGd1RMKlg0BDvsSG3VIWQCPJNNxD8upkiY7JlDavDsozUE7KG0nFx2NSo8LdUKGuGuF396vbWYdTGmgk8mSDy4uNV-GSymXHubq5Z7ap5JVmPErc4ZeYHCKCZhESjGNQmZ5B-6dx16s50-qGePmwf-ZLIO7Odg=&ver=3"
+                            class="btn btn-primary pull-right">Make A Donation</a>
+                            <button class="btn btn-danger pull-right" data-dismiss="modal" aria-label="Close">
+                                Close
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+@push('countDownDays')
+// Get the target element
+var countdownElement = document.getElementById("countdown");
+
+// Function to update the countdown
+function updateCountdown() {
+  // Get the current date
+  var today = new Date();
+
+  // Calculate the target date
+  var targetDate = new Date();
+  targetDate.setDate(today.getDate() + 14); // Adding 55 days
+
+  // Calculate the time difference
+  var timeDiff = targetDate.getTime() - today.getTime();
+
+  // Calculate the number of remaining days
+  var remainingDays = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+  // Update the paragraph content with the countdown
+  countdownElement.textContent = remainingDays;
+
+  // Decrement remaining days by 1
+  remainingDays--;
+
+  // Check if countdown has reached 0
+  if (remainingDays < 0) {
+    countdownElement.textContent = "Countdown reached 0";
+    return;
+  }
+}
+
+// Update the countdown initially
+updateCountdown();
+
+// Refresh the countdown daily
+setInterval(updateCountdown, 24 * 60 * 60 * 1000); // Refresh every 24 hours
+
+
+@endpush
+
+
+@endsection

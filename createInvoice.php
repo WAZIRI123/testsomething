@@ -6,12 +6,12 @@ VIEWS
 \wamp64\www\akaunting-1\resources\views\sales\invoices\create.blade.php
 DATA: NO
 SUBCOMPONENT
-\wamp64\www\akaunting-1\app\View\Components\Layouts\Admin.php
+C:\wamp64\www\akaunting\resources\views\components\layouts\admin.blade.php
 \wamp64\www\akaunting-1\resources\views\components\documents\form\content.blade.php
 \wamp64\www\akaunting-1\resources\views\components\documents\script.blade.php
 Slots         
 title,favorite,content
-LEVEL1(1 Admin.php)
+LEVEL1(1 C:\wamp64\www\akaunting\resources\views\components\layouts\admin.blade.php)
 SUBCOMPONENT
 \wamp64\www\akaunting-1\resources\views\components\layouts\admin\head.blade.php
 \wamp64\www\akaunting-1\resources\views\components\layouts\admin\menu.blade.php
@@ -111,7 +111,7 @@ Slots
 $slot
 Data
 $attributes-From parent
-$href-From parent
+$href-From parentcomponents\dropdown\button.blade.php
 
 LEVEL3(2 components\tooltip.blade.php)
 Data
@@ -142,6 +142,13 @@ Controller Component
 C:\wamp64\www\akaunting\app\Http\Livewire\Menu\Notifications.php
 
 Events:
+<!-- eg of how it will be triggered var markReadAllEvent = new CustomEvent('mark-read-all', {
+  detail: {
+    type: 'notifications',
+    message: 'Notification message to display for marking all as read'
+  }
+});
+window.dispatchEvent(markReadAllEvent); -->
 window.addEventListener('mark-read', event => {
             if (event.detail.type == 'notifications') {
                 $.notify(event.detail.message, {
@@ -166,18 +173,19 @@ GlobalData
 var is_settings_menu = {{ $active_menu }};
 
 Event
-menu('settings')-Events\Menu\SettingsCreated.php
+menu('settings')
+<!-- created from parent component by menu()->create('settings', function ($menu) { and it trigger Events\Menu\SettingsCreated.php -->
 Data 
 $keyword-From Controller Component
 $settings-From Controller Component
 
-LEVEL4(1 Menu\SettingsCreated.php)
+LEVEL4(event)(1 Menu\SettingsCreated.php)
 LISTENER 
 C:\wamp64\www\akaunting\app\Listeners\Menu\ShowInSettings.php
 DATA 
 $menu-from parent
 
-LEVEL5(1 Menu\ShowInSettings.php)
+LEVEL5(listener)(1 Menu\ShowInSettings.php)
 DATA 
 $event-From Parent 
 
@@ -188,12 +196,12 @@ $neww-From Controller Component
 Event 
 menu('neww')-Events\Menu\NewwCreated.php
 
-LEVEL4(1 Menu\NewwCreated.php)
+LEVEL4(event)(1 Menu\NewwCreated.php)
 LISTENER 
 C:\wamp64\www\akaunting\app\Listeners\Menu\ShowInNeww.php
 DATA 
 $menu-from parent
-LEVEL5(1 Menu\ShowInNeww.php)
+LEVEL5(listener)(1 Menu\ShowInNeww.php)
 DATA 
 $event-From Parent 
 
@@ -212,12 +220,12 @@ var is_profile_menu = {{ $active_menu }}
 EVENT 
 menu('profile')-Events\Menu\ProfileCreated.php
 
-LEVEL4(1 Menu\ProfileCreated.php)
+LEVEL4(event)(1 Menu\ProfileCreated.php)
 LISTENER 
 C:\wamp64\www\akaunting\app\Listeners\Menu\ShowInProfile.php
 DATA 
 $menu-from parent
-LEVEL5(1 Menu\ShowInProfile.php)
+LEVEL5(listener)(1 Menu\ShowInProfile.php)
 DATA 
 $event-From Parent 
 
@@ -235,14 +243,14 @@ LEVEL3(11 Http\Middleware\AdminMenu.php)
 EVENT
 menu('admin')-Events\Menu\AdminCreated.php
 
-LEVEL4(1 Events\Menu\AdminCreated.php )
+LEVEL4(event)(1 Events\Menu\AdminCreated.php )
 LISTENER 
 C:\wamp64\www\akaunting\app\Listeners\Menu\ShowInAdmin.php
 
 DATA 
 $menu-From Constructor
 
-LEVEL5(1 app\Listeners\Menu\ShowInAdmin.php)
+LEVEL5(listener)(1 app\Listeners\Menu\ShowInAdmin.php)
 DATA 
 $event-FROM EVENT
 
@@ -301,6 +309,8 @@ PROPS
 transitionDuration,overlap
 DATA 
 notifications-FROM STORE
+registered here Vue.prototype.$notifications = app.notificationStore; globally in resources/assets/js/components/NotificationPlugin/index.js
+
 
 LEVEL4(1 components\NotificationPlugin\Notification.vue )
 PROPS 
@@ -326,10 +336,10 @@ javascript Variable:
 toggleButton, menus,navbarMenu,mainContent,detailsEL, sectionContent
 sideBar,menuBackground,menuClose,notification_count ,menuClose
 
-LEVEL2(9 components\layouts\admin\notifications.blade.php)
+<!-- LEVEL2(9 components\layouts\admin\notifications.blade.php)
 DATA 
 $notifications-FROM CONTROLLER COMPONENT
-$notify-FROM CONTROLLER COMPONENT
+$notify-FROM CONTROLLER COMPONENT -->
 
 LEVEL1(2 components\documents\form\content.blade.php)
 SUBCOMPONENT
@@ -542,11 +552,11 @@ form,company_form,company_html
 
 SUBCOMPONENT
 C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingModalAddNew.vue
-AkauntingModal from './AkauntingModal'
-AkauntingMoney from './AkauntingMoney'
-AkauntingRadioGroup from './AkauntingRadioGroup'
-AkauntingSelect from './AkauntingSelect'
-AkauntingDate from './AkauntingDate'
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingModal.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingMoney.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingRadioGroup.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingSelect.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingDate.vue
 { Select, Option, OptionGroup, ColorPicker } from 'element-ui'
 PLUGINS 
 Form from './../plugins/form'
@@ -563,7 +573,7 @@ import { SlideYUpTransition } from "vue2-transitions";
 C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingModal.vue
 C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingMoney.vue
 C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingRadioGroup.vue
-C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingSelect.vue
+C:\wamp64\www\akaunting\resources\asset s\js\components\AkauntingSelect.vue
 C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingSelectRemote.vue
 C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingDate.vue
 C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingRecurring.vue
@@ -624,6 +634,8 @@ DATA
 dynamicPlaceholder,add_new,add_new_html,selected, form,sorted_options,full_options,new_options,loading,remote
 
 DynamicComponent
+<component v-bind:is="add_new_html" @submit="onSubmit" @cancel="onCancel"></component>
+
 C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingSelect.vue @add-new-component
 
 LEVEL8(1 components\AkauntingModalAddNew.vue)
@@ -1447,7 +1459,7 @@ SUBCOMPONENT
 C:\wamp64\www\akaunting\resources\assets\js\components\Inputs\BaseInput.vue {ALREADY}
 C:\wamp64\www\akaunting\resources\assets\js\components\Cards\Card.vue
 C:\wamp64\www\akaunting\resources\assets\js\components\Modal.vue
-C:\wamp64\www\akaunting\resources\assets\js\components\Cards\StatsCard.vue
+C:\wamp64\www\akaunting\resources\assets\js\components\Cards\StatsCard.vue{specify card type primary,warning ...}
 C:\wamp64\www\akaunting\resources\assets\js\components\BaseButton.vue
 C:\wamp64\www\akaunting\resources\assets\js\components\Badge.vue
 C:\wamp64\www\akaunting\resources\assets\js\components\BaseAlert.vue
@@ -1489,3 +1501,5 @@ IT JUST NORMAL FUNCTION
 LEVEL4(3 js\plugins\bulk-action.js)
 IT JUST JS FUNCTIONS FOR BULK ACTIONS
 
+MISCELLENOUS
+CalculateTotal
