@@ -4,7 +4,7 @@ SUBCOMPONENT
 C:\wamp64\www\akaunting\resources\views\components\layouts\admin.blade.php
 C:\wamp64\www\akaunting\resources\views\components\show\status.blade.php
 
-C:\wamp64\www\akaunting\resources\views\components\documents\show\buttons.blade.php
+C:\wamp64\www\akaunting\resources\views\compzonents\documents\show\buttons.blade.php
 
 C:\wamp64\www\akaunting\resources\views\components\documents\show\more-buttons.blade.php
 
@@ -68,9 +68,6 @@ if ('serviceWorker' in navigator) {
 
     
 LEVEL3(2 exceptions\trackers.blade.php)
-Controller Component
-
-C:\wamp64\www\akaunting\app\View\Components\Script\Exceptions\Trackers.php
 
 Data
 $channel;$action;$ip;$tags;$params; from Control Component
@@ -137,16 +134,12 @@ $slot
 LEVEL3(3 livewire\menu\favorites.blade.php)
 Data:
 $favorites-From Controller Component
-Controller Component
-C:\wamp64\www\akaunting\app\Http\Livewire\Menu\Favorites.php
 
 LEVEL3(4 livewire\menu\notifications.blade.php)
 Data 
 $keyword-From Controller Component
 $notifications-From Controller Component
 
-Controller Component
-C:\wamp64\www\akaunting\app\Http\Livewire\Menu\Notifications.php
 
 Events:
 <!-- eg of how it will be triggered var markReadAllEvent = new CustomEvent('mark-read-all', {
@@ -363,6 +356,95 @@ $editRoute-From Controller Component
 $createRoute-From Controller Component
 $document-From Parent
 
+calculation of $editRoute & $createRoute
+
+dependents
+$type=invoice
+$document="$invoice"
+$editRoute=''
+$parameter=1
+$this->editRoute = $this->geteditRoute($type, $editRoute)=$this->geteditRoute(invoice, '');
+
+$route = $this->getRouteFromConfig($type, $config_key, $config_parameters = [], $modal = false)=$this->getRouteFromConfig(invoice, 'edit', 1, true);
+
+Option of getRouteFromConfig()
+dependents
+static::OBJECT_TYPE=document
+$type=invoice
+$config_key=edit
+
+OPTION1
+$route = config('type.' . static::OBJECT_TYPE . invoice . '.route.' . $config_key)=config('type . document .invoice . route . edit)=undefined
+
+OPTION2
+dependents
+$alias = config('type.document.invoice .alias')='';
+$prefix = config('type.document.invoice.route.prefix')=invoices;
+
+$route .= '' . '.';
+$route .= 'modals.';
+$route .= invoices. '.';
+$route .= edit;
+if ($modal=true)
+route(modals.invoices.edit, 1);
+
+OPTION3
+$route = Str::plural(invoice, 2) . '.' . edit;
+route(invoices.edit,1);
+
+OPTION4
+$route=''
+
+FINAL
+$route=modals.invoices.edit
+or
+$route=invoices.edit this it final
+
+
+Calculate   $createRoute
+dependents
+$type=invoice
+$document="$invoice"
+$createRoute=''
+$parameter=1
+$this->createRoute = $this->getcreateRoute($type, $createRoute)=$this->getcreateRoute(invoice, '');
+
+$route = $this->getRouteFromConfig($type, $config_key, $config_parameters = [], $modal = false)=$this->getRouteFromConfig(invoice, 'create', 1, true);
+
+Option of getRouteFromConfig()
+dependents
+static::OBJECT_TYPE=document
+$type=invoice
+$config_key=create
+
+OPTION1
+$route = config('type.' . static::OBJECT_TYPE . invoice . '.route.' . $config_key)=config('type . document .invoice . route . create)=undefined
+
+OPTION2
+dependents
+$alias = config('type.document.invoice .alias')='';
+$prefix = config('type.document.invoice.route.prefix')=invoices;
+
+$route .= '' . '.';
+$route .= 'modals.';
+$route .= invoices. '.';
+$route .= create;
+if ($modal=true)
+route(modals.invoices.create, 1);
+
+OPTION3
+$route = Str::plural(invoice, 2) . '.' . create;
+route(invoices.create,1);
+
+OPTION4
+$route=''
+
+FINAL
+$route=modals.invoices.create
+or
+$route=invoices.create this it final
+
+
 SUBCOMPONENT
 C:\wamp64\www\akaunting\resources\views\components\link\index.blade.php
 
@@ -378,8 +460,20 @@ $hideMoreActions-From Controller Component
 $document-From Parent
 $permissionCreate-From Controller Component
 $duplicateRoute-From Controller Component
-$printRoute-From Controller Component
-$pdfRoute-From Controller Component
+$printRoute-From Controller Component=invoices.print
+NB IT PRINT BECAUSE OF window.print() IN C:\wamp64\www\akaunting\resources\views\components\layouts\print.blade.php
+
+$pdfRoute-From Controller Component=invoices.pdf
+Downloaded File Name
+public function getDocumentFileName(Document $document, string $separator = '-', string $extension = 'pdf'): string
+    {
+        return $this->getSafeDocumentNumber($document, $separator) . $separator . time() . '.' . $extension;
+    }
+
+    public function getSafeDocumentNumber(Document $document, string $separator = '-'): string
+    {
+        return Str::slug($document->document_number, $separator, language()->getShortCode());
+    }
 $shareRoute-From Controller Component
 $hideShare-From Controller Component
 $hideDivider2-From Controller Component
@@ -390,13 +484,58 @@ $hideDivider3-From Controller Component
 $hideDivider4-From Controller Component
 $permissionDelete-From Controller Component
 $customizeRoute-From Controller Component
+CALCULATE CUSTOMIZED ROUTE
+$route = '';
+$type=invoice
+static::OBJECT_TYPE=document 
+
+$alias = config('type.' . static::OBJECT_TYPE . '.' . $type . '.alias')=config('type.document.invoice.alias')='';
+
+if (!empty($alias)) {
+            $route .= $alias . '.';
+        }
+
+$route .= 'settings.invoice.edit';
+
+calculation of script folder path for customize
+<x-script folder="settings" file="settings" />
+$alias=core 
+
+$this->source = $this->getSource(core , settings, settings);
+protected function getSource($alias, $folder, $file)
+    {
+        $path = 'public/js/';
+        $version = version('short');
+
+        if ($alias != 'core') {
+            try {
+                $module = module($alias);
+
+                if ($module) {
+                    $path = 'modules/' . $module->getStudlyName() . '/Resources/assets/js/';
+                    $version = module_version($alias);
+                }
+            } catch (\Exception $e) {
+
+            }
+        }
+
+        if (! empty($folder)) {
+            $path .=  . '/';
+        }
+
+        $path .= $file . '.min.js?v=' . $version;
+
+        return $path=resources\assets\js\views\settings\settings.js ?HOW , IS A PROBLEM;
+    }
+
 $checkReconciled-From Controller Component
 $deleteRoute-From Controller Component
 $textDeleteModal-From Controller Component
 $endRoute-From Controller Component
 $cancelledRoute-From Controller Component
 $permissionCustomize-From Controller Component
-
+$duplicateRoute=invoices.duplicate
 SLOT 
 trigger
 
@@ -557,7 +696,7 @@ modals.invoices.emails.create > Controllers\Modals\InvoiceEmails.php @create > A
 {where actual message will be sent using $document->contact->notify(new $notification($document, $this`->template_alias, true, $custom_mail, $attachments));}
 
 IMPORTANT NOTES ON AkauntingModalAddNew.vue
-this.message=htm of modal
+this.message=html of modal
 form_id = document.getElementById('modal-add-new-form-' + form_prefix).children[0].id{FORM ID}
 
 this.form = this.$children[0].$children[0].form{CHILD COMPONENT FORM DATA };
@@ -757,6 +896,63 @@ LEVEL2(4 components\documents\show\get-paid.blade.php){ALREADY}
 methods 
 onAddPayment: on global js
 
+IMPORTANT ON ONLINE PAYMENT
+GET URL TO
+dependents
+$page = request('page', 1);
+
+$data = [
+    'query' => [
+        'page' => $page,
+    ]
+];
+
+$alias=payment-method
+$data=getModulesByCategory($alias, $data = [])=$this->getModulesByCategory(payment-method, $data)
+$key = 'apps.categories. payment-method . $this->getDataKeyOfModules($data);
+
+$result = 'language.' . language()->getShortCode() . '.page.' . $this->getPageNumberOfModules($data);
+
+public function getPageNumberOfModules($data = [])
+    {
+        if (empty($data['query']) || empty($data['query']['page'])) {
+            return 1;
+        }
+
+        return $data['query']['page'];
+    }
+
+    $result = 'language.' . language()->getShortCode() . '.page.1
+
+    public function getDataKeyOfModules($data = [])
+    {
+        $result = 'language.' . language()->getShortCode() . '.page.' . $this->getPageNumberOfModules($data);
+
+        if (isset($data['query']['page'])) {
+            unset($data['query']['page']);
+        }
+
+        if (isset($data['query'])){
+            foreach($data['query'] as $key => $value) {
+                $result .= '.' . $key . '.' . $value;
+            }
+        }
+
+        return $result;
+    }
+
+ $key = 'apps.categories.payment-method.language()->getShortCode().page.1?.$key.$value';
+zend_version
+ $category = Cache::get($key);
+ if (! empty($category)) {
+            return $category;
+        }
+
+        $category = static::getResponseData('GET', 'apps/categories/' . $alias, $data);
+
+NB: IT WILL REDIRECTED TO apps/api-key/create BECAUSE I DONT HAVE API KEY YET.
+
+
 HOW THE ADD PAYMENT IS DONE
 1. akaunting-modal-add-new emits cancel and submit event PASSING this.form as Parameter on respective btn clicked
 
@@ -875,7 +1071,6 @@ DATA
 $class-FROM CONTROLLER CONTROLLER
 $textClass-FROM CONTROLLER CONTROLLER
 $modelTable-FROM CONTROLLER CONTROLLER
-$attributes-FROM CONTROLLER CONTROLLER
 $slot-FROM SLOT PARENT
 $message-FROM CONTROLLER CONTROLLER
 $deleteText-FROM CONTROLLER CONTROLLER
@@ -932,12 +1127,15 @@ $footfROM SLOT PARENT
 
 LEVEL2(7 components\documents\show\schedule.blade.php)
 {ALREADY AS C:\wamp64\www\akaunting\resources\views\components\documents\show\restore.blade.php} THEY HAVE SAME STRUCTURE ALTHOUGH DIFFERENT CONTENTS
+DATA 
+$document -FROM PARENT 
+
 
 LEVEL2(8
 components\documents\show\children.blade.php)
 {ALREADY AS C:\wamp64\www\akaunting\resources\views\components\documents\show\restore.blade.php}
 DATA 
-$document - FROM CONTROLELER COMPONENT
+$document - FROM PARENT
 SUBCOMPONENT
 C:\wamp64\www\akaunting\resources\views\components\show\accordion\head.blade.php
 
@@ -1168,11 +1366,3 @@ IT JUST JS FUNCTIONS FOR BULK ACTIONS
 
 MISCELLENOUS
 CalculateTotal
-
-
-
-
-
-
-
-

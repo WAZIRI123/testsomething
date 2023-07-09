@@ -130,8 +130,7 @@ $slot
 LEVEL3(3 livewire\menu\favorites.blade.php)
 Data:
 $favorites-From Controller Component
-Controller Component
-C:\wamp64\www\akaunting\app\Http\Livewire\Menu\Favorites.php
+
 
 LEVEL3(4 livewire\menu\notifications.blade.php)
 Data 
