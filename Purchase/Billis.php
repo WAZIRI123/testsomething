@@ -1,20 +1,20 @@
-C:\wamp64\www\akaunting\resources\views\sales\customers\index.blade.php
+C:\wamp64\www\akaunting\resources\views\purchases\recurring_bills\index.blade.php
 
 SUBCOMPONENT
 C:\wamp64\www\akaunting\resources\views\components\layouts\admin.blade.php
-C:\wamp64\www\akaunting\resources\views\components\contacts\index\buttons.blade.php
+C:\wamp64\www\akaunting\resources\views\components\documents\index\buttons.blade.php
 
-C:\wamp64\www\akaunting\resources\views\components\contacts\index\more-buttons.blade.php
+C:\wamp64\www\akaunting\resources\views\components\documents\index\more-buttons.blade.php
 
-C:\wamp64\www\akaunting\resources\views\components\contacts\index\content.blade.php
+C:\wamp64\www\akaunting\resources\views\components\documents\index\content.blade.php
 
-C:\wamp64\www\akaunting\resources\views\components\contacts\script.blade.php
+C:\wamp64\www\akaunting\resources\views\components\documents\script.blade.php
 
 Slots
 title,favorite,buttons,moreButtons,content
 
 DATA 
-$customers
+$bills
 LEVEL1(1 C:\wamp64\www\akaunting\resources\views\components\layouts\admin.blade.php)
 SUBCOMPONENT
 \wamp64\www\akaunting-1\resources\views\components\layouts\admin\head.blade.php
@@ -287,7 +287,7 @@ $route-From Controller Component
 $url-From Controller Component
 
 SUBCOMPONENT
-C:\wamp64\www\akaunting\resources\views\livewire\menu\favorite.blade.php
+C:\wamp64\www\akaunting\resources\views\livewire\menu\favorite.blade.php{defined by <livewire:menu.favorite in  components\menu\favorite.blade.php }
 
 LEVEL3(1 livewire\menu\favorite.blade.php)
 Data 
@@ -341,59 +341,59 @@ sideBar,menuBackground,menuClose,notification_count ,menuClose
 
 ---------End Of Admin LayOut------------------------------------
 
+LEVEL1(2 components\documents\index\buttons.blade.php)
 
-LEVEL1(2 components\contacts\index\buttons.blade.php)
+SUBCOMPONENT
+C:\wamp64\www\akaunting\resources\views\components\dropdown\link.blade.php
+
 DATA 
-$createRoute-FROM CONTROLLER
-$textPage-FROM CONTROLLER
-$type-FROM PARENT=customer
-$checkPermissionCreate-FROM CONTROLLER
-$permissionCreate-FROM CONTROLLER
-$hideCreate-FROM CONTROLLER
-
+$hideCreate
+$createRoute
 calculate $createRoute
 dependents
-$type=customer
-$document="$customers"
+$type=bill
+$document="$bills"
 $createRoute=''
 $parameter=1
-$this->createRoute = $this->getcreateRoute($type, $createRoute)=$this->getcreateRoute(customer, '');
+$this->createRoute = $this->getcreateRoute($type, $createRoute)=$this->getcreateRoute(bill, '');
 
-$route = $this->getRouteFromConfig($type, $config_key, $config_parameters = [], $modal = false)=$this->getRouteFromConfig(customer, 'create', 1, true);
+$route = $this->getRouteFromConfig($type, $config_key, $config_parameters = [], $modal = false)=$this->getRouteFromConfig(bill, 'create', 1, true);
 
 Option of getRouteFromConfig()
 dependents
 static::OBJECT_TYPE=document
-$type=customer
+$type=bill
 $config_key=create
 
 OPTION1
-$route = config('type.' . static::OBJECT_TYPE . customer . '.route.' . $config_key)=config('type . document .customer . route . create)=undefined
+$route = config('type.' . static::OBJECT_TYPE . bill . '.route.' . $config_key)=config('type . document .bill . route . create)=undefined
 
 OPTION2
 dependents
-$alias = config('type.document.customer .alias')='';
-$prefix = config('type.document.customer.route.prefix')=customers;
+$alias = config('type.document.bill .alias')='';
+$prefix = config('type.document.bill.route.prefix')=bills;
 
 $route .= '' . '.';
 $route .= 'modals.';
-$route .= customers. '.';
+$route .= bills. '.';
 $route .= create;
 if ($modal=true)
-route(modals.customers.create, 1);
+route(modals.bills.create, 1);
 
 OPTION3
-$route = Str::plural(customer, 2) . '.' . create;
-route(customers.create,1);
+$route = Str::plural(bill, 2) . '.' . create;
+route(bills.create,1);
 
 OPTION4
 $route=''
 
 FINAL
-$route=modals.customers.create
+$route=modals.bills.create
 or
-$route=customers.create this it final
+$route=bills.create this it final
 
+$type
+$textPage
 
 SUBCOMPONENT
 C:\wamp64\www\akaunting\resources\views\components\link\index.blade.php
@@ -405,7 +405,7 @@ $attributes-FROM attributes
 $slot-From slot 
 
 
-LEVEL1(3 components\contacts\index\more-buttons.blade.php)
+LEVEL1(3 components\documents\index\more-buttons.blade.php)
 
 DATA 
 $checkPermissionCreate
@@ -414,9 +414,9 @@ $hideImport
 $importRouteParameters
 calculate $importRouteParameters
 dependents
-$type=customer
+$type=bill
 $importRouteParameters=[]
-static::OBJECT_TYPE=contact
+static::OBJECT_TYPE=document
 $this->getImportRouteParameters($type, $importRouteParameters)=$this->getImportRouteParameters(invoice, [])
 
 protected function getImportRouteParameters(invoice, [])
@@ -425,14 +425,14 @@ protected function getImportRouteParameters(invoice, [])
             return $importRouteParameters;
         }
 
-        $alias = config('type.contact  . customer . '.alias')='';
-        $group = config('type.contact . customer . '.group')='sales';
-        $prefix = config('type.contact  . customer . '.route.prefix')='customers';
+        $alias = config('type.document  . bill . '.alias')='';
+        $group = config('type.document . bill . '.group')='purchases';
+        $prefix = config('type.document  . bill . '.route.prefix')='bills';
 
         if (empty($group) && ! empty($alias)){
             $group = $alias;
         } else if (empty($group) && empty($alias)) {
-            $group = 'sales';
+            $group = 'purchases';
         }
 
         $importRouteParameters = [
@@ -440,7 +440,7 @@ protected function getImportRouteParameters(invoice, [])
             'type' => $prefix,
         ];
 
-        return $importRouteParameters=[sales,customers];
+        return $importRouteParameters=[purchases,bills];
     }
 
 
@@ -448,50 +448,50 @@ $type
 $exportRoute
 calculate $exportRoute
 dependents
-$type=customer
+$type=bill
 $document=$invoice
 
-$this->exportRoute = $this->getexportRoute($type, $importRoute)=$this->getexportRoute(customer, '');
+$this->exportRoute = $this->getexportRoute($type, $importRoute)=$this->getexportRoute(bill, '');
 
-$route = $this->getRouteFromConfig($type, $config_key, $config_parameters = [], $modal = false)=$this->getRouteFromConfig(customer, 'export', 1, false);
+$route = $this->getRouteFromConfig($type, $config_key, $config_parameters = [], $modal = false)=$this->getRouteFromConfig(bill, 'export', 1, false);
 
 Option of getRouteFromConfig()
 dependents
 static::OBJECT_TYPE=document
-$type=customer
+$type=bill
 $config_key=export
 
 OPTION1
-$route = config('type.' . static::OBJECT_TYPE . customer . '.route.' . $config_key)=config('type . contact .customer . route . create)=undefined
+$route = config('type.' . static::OBJECT_TYPE . bill . '.route.' . $config_key)=config('type . document .bill . route . create)=undefined
 
 OPTION2
 dependents
-$alias = config('type.contact.customer .alias')='';
-$prefix = config('type.contact.customer.route.prefix')=customers;
+$alias = config('type.document.bill .alias')='';
+$prefix = config('type.document.bill.route.prefix')=bills;
 
 $route .= '' . '.';
 $route .= 'modals.';
-$route .= customers. '.';
+$route .= bills. '.';
 $route .= export;
 if ($modal=true)
-route(modals.customers.export, 1);
+route(modals.bills.export, 1);
 
 OPTION3
-$route = Str::plural(customer, 2) . '.' . export;
-route(customers.export,1);
+$route = Str::plural(bill, 2) . '.' . export;
+route(bills.export,1);
 
 OPTION4
 $route=''
 
 FINAL
-$route=modals.customers.export
+$route=modals.bills.export
 or
-$route=customers.export this it final
+$route=bills.export this it final
 
 $importRoute
 calculate $importRoute
 dependents
-$type=customer
+$type=bill
 $document=$invoice
 
 $parameter=1
@@ -502,11 +502,11 @@ C:\wamp64\www\akaunting\resources\views\common\import\create.blade.php
 
 LEVEL2(1 common\import\create.blade.php)
 Data
-$form_params['url']=company_id()/sales/customers/import =>Sales\Customers@import
+$form_params['url']=company_id()/purchases/bills/import =>purchases\bills@import
 $title_type
 $sample_file
 $route
-$path=company_id()/sales/customers
+$path=company_id()/purchases/bills
 
 SUBCOMPONENTS
 C:\wamp64\www\akaunting\resources\views\components\form\index.blade.php
@@ -524,7 +524,7 @@ $action=""
 $route=false
 $url=false
 
-FINAL $action =what given in constructor
+FINAL $action =what given in constructor=company_id()/purchases/bills/import =>purchases\bills@import
 
 CONTTROLLER COMPONENT
 $class-FROM CONTTROLLER COMPONENT
@@ -663,56 +663,112 @@ protected function getSource(core, common, imports)
     js\views\common\imports.js
     return form: new Form('import')
 
-   LEVEL1(4 components\contacts\index\content.blade.php)
-   SUBCOMPONENT
-   C:\wamp64\www\akaunting\resources\views\components\index\summary.blade.php
-   C:\wamp64\www\akaunting\resources\views\components\index\container.blade.php
-   C:\wamp64\www\akaunting\resources\views\components\index\search.blade.php
-   C:\wamp64\www\akaunting\resources\views\components\table\index.blade.php
-   C:\wamp64\www\akaunting\resources\views\components\table\tr.blade.php
-   C:\wamp64\www\akaunting\resources\views\components\table\tbody.blade.php
-   C:\wamp64\www\akaunting\resources\views\components\table\actions-mobile.blade.php
-   C:\wamp64\www\akaunting\resources\views\components\table\actions.blade.php
-   C:\wamp64\www\akaunting\resources\views\components\index\bulkaction\single.blade.php
-   C:\wamp64\www\akaunting\resources\views\components\index\currency.blade.php
-   C:\wamp64\www\akaunting\resources\views\components\index\country.blade.php
-   C:\wamp64\www\akaunting\resources\views\components\index\disable.blade.php
-   C:\wamp64\www\akaunting\resources\views\components\contacts\index\content.blade.php
-   C:\wamp64\www\akaunting\resources\views\components\table\td.blade.php
-   C:\wamp64\www\akaunting\resources\views\components\table\th.blade.php
-   C:\wamp64\www\akaunting\resources\views\components\table\thead.blade.php
-   C:\wamp64\www\akaunting\resources\views\components\pagination.blade.php
-   C:\wamp64\www\akaunting\resources\views\components\empty-page.blade.php
-   DATA 
-   $summaryItems
-   $hideEmptyPage
-   $contacts
-   $hideSummary
-   $hideSearchString
-   $searchStringModel
+
+    LEVEL1(3 components\documents\index\content.blade.php)
+    SUBCOMPONENTS
+
+    C:\wamp64\www\akaunting\resources\views\components\index\summary.blade.php
+    C:\wamp64\www\akaunting\resources\views\components\index\container.blade.php
    
+    C:\wamp64\www\akaunting\resources\views\components\tabs\nav.blade.php
+    C:\wamp64\www\akaunting\resources\views\components\tabs\nav-link.blade.php
+    C:\wamp64\www\akaunting\resources\views\components\index\search.blade.php
+    C:\wamp64\www\akaunting\resources\views\components\documents\index\document.blade.php
+    C:\wamp64\www\akaunting\resources\views\components\documents\index\recurring_templates.blade.php
+    C:\wamp64\www\akaunting\resources\views\components\empty-page.blade.php
+
+    DATA 
+    ACTION ARE STORED IN $this->model->line_actions
+    $summaryItems
+    $tabActive
+    $type
+    $withoutTabs
+    $hideSummary
+    $hideEmptyPage
+    $textTabDocument
+    $routeTabDocument
+    calculate $routeTabDocument
+    $routeTabDocument=$this->getRouteTabDocument($type, $routeTabDocument)=$this->getRouteTabDocument(bill, ']')
+
+    $route = $this->getRouteFromConfig(bill, 'document', 'invoices')= getRouteFromConfig($type, $config_key, $config_parameters = [], $modal = false)=$this->getRouteFromConfig(bill, 'document', 'invoices')
+    $route = config('type.' . static::OBJECT_TYPE . '.' . $type . '.route.' . $config_key)= config('type.' . document . '.' . bill . '.route.' . document)=bills.index
+
+    if $route use empty then i would to continue
+    $alias = config('type.' . document . '.' . bill. '.alias')=''
+
+    $prefix = config('type.' . document. '.' . bill. '.route.prefix')=bills
+
+    $route .= ''. '.';
+    $route .= bills . '.';
+
+    $route .= document;
+ FINAL 
+ $routeTabDocumenT=bills.index
+    $routeTabRecurring
+    calculate $routeTabRecurring
+    $routeTabRecurring=$this->getrouteTabRecurring($type, $routeTabRecurring)=$this->getrouteTabRecurring(bill, '')
+
+    $route = $this->getRouteFromConfig(bill, 'recurring', 'recurring-invoices')= getRouteFromConfig($type, $config_key, $config_parameters = [], $modal = false)=$this->getRouteFromConfig(bill, 'recurring', 'recurring-invoices')
+    $route = config('type.' . static::OBJECT_TYPE . '.' . $type . '.route.' . $config_key)= config('type.' . document . '.' . bill . '.route.' . recurring-invoices)=recurring-bills.index
+
+    if $route use empty then i would to continue
+    $alias = config('type.' . document . '.' . bill. '.alias')=''
+
+    $prefix = config('type.' . document. '.' . bill. '.route.prefix')=bills
+
+    $route .= ''. '.';
+    $route .= bills . '.';
+
+    $route .= document;
+ FINAL 
+ $routeTabRecurring=recurring-bills.index
+
+
+
+
+    $hideSearchString
+    $hideBulkAction
+    $searchStringModel
+   CALCULATE   $searchStringModel
+   $searchStringModel='',
+static::OBJECT_TYPE=document
+   $this->searchStringModel = $this->getSearchStringModel("bill", $searchStringModel);
+
+   searchStringModel=getSearchStringModel($type, $searchStringModel)=getSearchStringModel("bill", '')= config('type.' . document . '.' . bill. '.search_string_model')=''
+
+   $group = config('type.' . document . '.' . bill . '.group')=purchases
+
+   $prefix = Str::studly(Str::singular(config('type.' . document. '.' . bill . '.route.prefix')))=bills;
+
+   $group = Str::studly(Str::singular($group)) . '\\';
+   $alias = config('type.' . document . '.' . bill . '.alias')=''
+FINAL 
+   $searchStringModel = 'Modules\\' . Str::studly($alias) .'\Models\\' . Purchase . bills;
+
+   OR
+   $searchStringModel = 'App\Models\\' . Purchase .bills;
    $bulkActionClass
    CALCULATE $bulkActionClass
    $bulkActionClass=''
-   $type=customer
+   $type=bill
    $file_name = '';
-   static::OBJECT_TYPE=contact
+   static::OBJECT_TYPE=document
 
-   $this->bulkActionClass = getBulkActionClass($type, $bulkActionClass)=$this->getBulkActionClass(customer, '');
+   $this->bulkActionClass = getBulkActionClass($type, $bulkActionClass)=$this->getBulkActionClass(bill, '');
 
-   $this->bulkActionClass = getBulkActionClass($type, $bulkActionClass)=$this->getBulkActionClass(customer, '');
-   =config('type.' . static::OBJECT_TYPE . '.' . $type . '.bulk_actions')= config('type.' contact'.' . customer . '.bulk_actions')
+   $this->bulkActionClass = getBulkActionClass($type, $bulkActionClass)=$this->getBulkActionClass(bill, '');
+   =config('type.' . static::OBJECT_TYPE . '.' . $type . '.bulk_actions')= config('type.' document'.' . bill . '.bulk_actions')
 
    OR
 
-$group = config('type.' . static::OBJECT_TYPE . '.' . $type . '.group')=config('type.' . contact . '.' . customer . '.group')
-=sales
+$group = config('type.' . static::OBJECT_TYPE . '.' . $type . '.group')=config('type.' . document . '.' . bill . '.group')
+=purchases
 $file_name .=Str::studly($group) . '\\'
 
-$prefix = config('type.' . contact . '.' . customer. '.route.prefix')=customers
+$prefix = config('type.' . document . '.' . bill. '.route.prefix')=bills
 $file_name .= Str::studly($prefix);
 
-$alias = config('type.' . contact . '.' . customer . '.alias')=''
+$alias = config('type.' . document . '.' . bill . '.alias')=''
 $module = module($alias)
 
 if (! $module instanceof Module) {
@@ -728,119 +784,81 @@ if (! $module instanceof Module) {
             $bulkActionClass = 'Modules\\' . $module->getStudlyName() . '\BulkActions\\' . $file_name;
 
             OR
-            $bulkActionClass = 'App\BulkActions\\' .  $file_name=App\BulkActions\\sales\customers
-
-   $searchStringModel
-   CALCULATE   $searchStringModel
-   $searchStringModel='',
-static::OBJECT_TYPE=contact
-   $this->searchStringModel = $this->getSearchStringModel("customer", $searchStringModel);
-
-   searchStringModel=getSearchStringModel($type, $searchStringModel)=getSearchStringModel("customer", '')= config('type.' . contact . '.' . customer. '.search_string_model')
-
-   $group = config('type.' . contact . '.' . customer . '.group')
-
-   $prefix = Str::studly(Str::singular(config('type.' . contact. '.' . customer . '.route.prefix')));
-
-   $group = Str::studly(Str::singular($group)) . '\\';
-   $alias = config('type.' . contact . '.' . customer . '.alias')
-FINAL 
-   $searchStringModel = 'Modules\\' . Str::studly($alias) .'\Models\\' . $group . $prefix;
-
-   OR
-   $searchStringModel = 'App\Models\\' . $group . $prefix;
+            $bulkActionClass = 'App\BulkActions\\' .  $file_name=App\BulkActions\\purchases\bills
 
 
-   CALCULATE  $searchRoute
+    $searchRoute
+
+CALCULATE  $searchRoute
    Dependents
-   type="customer"
+   type="bill"
    $searchRoute=
 
-   $this->searchRoute = $this->getIndexRoute($type, $searchRoute)=$this->getIndexRoute(customer,'');
+   $this->searchRoute = $this->getIndexRoute($type, $searchRoute)=$this->getIndexRoute(bill,'');
 
-   $this->searchRoute = $this->getRouteFromConfig($type, 'index')$this->getRouteFromConfig(customer, 'index');
+   $this->searchRoute = $this->getRouteFromConfig($type, 'index')$this->getRouteFromConfig(bill, 'index');
 
-   getRouteFromConfig($type, $config_key, $config_parameters = [], $modal = false)=getRouteFromConfig(customer, index, $config_parameters = [], $modal = false){
-   $alias= config('type.contact . customer . '.alias')=''
+   getRouteFromConfig($type, $config_key, $config_parameters = [], $modal = false)=getRouteFromConfig(bill, index, $config_parameters = [], $modal = false){
+   $alias= config('type.document . bill . '.alias')=''
 
-   $prefix= config('type.contact . customer . 'route.prefix')=customers
+   $prefix= config('type.document . bill . 'route.prefix')=bills
    }
 
    Final
-   $this->searchRoute=customers/index
-   
+   $this->searchRoute=bills.index
 
+    $documents
+    $group
+    $page
+    $alias
+    $emptyPageButtons
+    $imageEmptyPage
+    $textEmptyPage
+    $urlDocsPath
+    $checkPermissionCreate
 
-   $hideBulkAction
-   $classBulkAction
-   calculate $classBulkAction
-   type="customer"
+    IMPORTANT NOTES 
 
- $this->classBulkAction = $this->getClassBulkAction($type, $classBulkAction)=$this->getClassBulkAction('customer', '');
+    IF $withoutTabs NOT SET AND 
+    @if ($tabActive == $type)
+    WE DIPLAY   <x-documents.index.document :type="$type" :documents="$documents" /> ELSE WE DISPLAY 
+    <x-tabs.tab id="recurring-templates">
+                            <x-documents.index.recurring-templates :type="$type" :documents="$documents" />
 
- $class=public function getClassFromConfig($type, $config_key)=$this->getClassFromConfig('customer', 'bulk_action')
- $class_key ='type.' . $type . '.class.' . $config_key='type.' . customer. '.class.' . bulk_action=
- $classBulkAction=config($class_key, '')='';
+    LEVEL2(1 components\index\summary.blade.php)
 
- SO IT TAKE DEFAULT
- $classBulkAction=ltr:pr-6 rtl:pl-6 hidden sm:table-cell
+    DATA 
+    $slot
+    $items
+    $first
+    $second
+    $third
 
-   $hideName
-   $hideTaxNumber
-   $classNameAndTaxNumber
-   $textName
-   $textTaxNumber
-   $classEmailAndPhone
-   $hidePhone
-   $hideEmail
-   $textEmail
-   $textPhone
-   $hideCountry
-   $classCountryAndCurrencyCode
-   $textCountry
-   $hideCurrencyCode
-   $textCurrencyCode
-   $hideOverdue
-   $hideOpen
-   $textOpen
-   $textOverdue
+    SUBCOMPONENT
+    C:\wamp64\www\akaunting\resources\views\components\tooltip.blade.php{ALREADY}
+    C:\wamp64\www\akaunting\resources\views\components\dropdown\link.blade.php{ALREADY}
 
-LEVEL2(1 components\index\summary.blade.php)
+    LEVEL2(2 components\index\container.blade.php)
+    $slot-FROM SLOT
+    
+    LEVEL2(3 components\tabs\nav.blade.php)
+
+    DATA 
+    $id
+    $slot
+    $attributes
+    $name
+
+    LEVEL2(4 components\tabs\nav-link.blade.php)
+
 DATA 
-$items-FROM PARENT
-$first-FROM SLOTS
-$second-FROM SLOTS
-$third-FROM SLOTS
-
-SUBCOMPONENT
-C:\wamp64\www\akaunting\resources\views\components\tooltip.blade.php
-C:\wamp64\www\akaunting\resources\views\components\link\index.blade.php
-
-LEVEL3(1 components\tooltip.blade.php)
-Data
-$width-not  provided
-$id-From parent
-$backgroundColor-From Controller Component
-$textColor-From Controller Component
-$size-From Controller Component
-$borderColor-From Controller Component
-$tooltipPosition-From Controller Component
-$whitespace-From Controller Component
-$message-From parent
-Slots
+$id
 $slot
+$attributes
+$name
+    
 
-LEVEL3(2 components\link\index.blade.php)
-DATA 
-$class-From Controller Component
-$attributes-FROM attributes
-
-LEVEL2(2 components\index\container.blade.php)
-DATA 
-$attributes- FROM ATTRIBUTES
-$slot-FROM SLOT
-
-LEVEL2(3 components\index\search.blade.php)
+LEVEL2(5 components\index\search.blade.php)
 $searchString-FROM PARENT
 $bulkAction-FROM PARENT
 $action -FROM CONTROLLER COMPONENT
@@ -850,7 +868,7 @@ $action=""
 $route=false
 $url=false
 
-FINAL $action =what given in constructor=customers.index
+FINAL $action =what given in constructor=bills.index
 
 SUBCOMPONENT 
 C:\wamp64\www\akaunting\resources\views\components\form\index.blade.php
@@ -872,7 +890,7 @@ C:\wamp64\www\akaunting\resources\assets\js\components\AkauntingSearch.vue
 LEVEL4(1 components\AkauntingSearch.vue)
 PROPS
 placeholder
-\\\\\selectPlaceholder
+selectPlaceholder
 enterPlaceholder
 searchText
 operatorIsText
@@ -918,10 +936,10 @@ $path-FROM CONTOLLER COMPONENT
 Calculate $path
 dependents
 $path = [
-        'group' => 'sales',
-        'type' => 'customers',
+        'group' => 'purchases',
+        'type' => 'bills',
     ];
-$bulk_action=App\BulkActions\\sales\customers
+$bulk_action=App\BulkActions\\purchases\bills
 
 route('bulk-actions.action', $bulk_action->path)
 or
@@ -942,6 +960,9 @@ or
                 $this->path = url('common/bulk-actions/' . $bulk_action->path);
             }
       THIS IS IMPORTANT IN WHICH ACTION ARE EXECUTED       $result = $bulk_actions->{$handle}($request);
+
+
+      WHERE $handle = $request->get('handle', '*');
   
 
 SUBCOMPONENT 
@@ -1098,14 +1119,34 @@ ALREADY
 DATA 
 frequency,interval,customFrequency,started_at,limit,limitCount,limitDate,formatDate,sendEmail
 
-LEVEL2(4 components\table\index.blade.php)
+LEVEL2(6 components\documents\index\document.blade.php)
+
+SUBCOMPONENT
+   C:\wamp64\www\akaunting\resources\views\components\table\index.blade.php
+   C:\wamp64\www\akaunting\resources\views\components\table\tr.blade.php
+   C:\wamp64\www\akaunting\resources\views\components\table\tbody.blade.php
+   C:\wamp64\www\akaunting\resources\views\components\table\actions-mobile.blade.php
+   C:\wamp64\www\akaunting\resources\views\components\table\actions.blade.php
+   C:\wamp64\www\akaunting\resources\views\components\index\bulkaction\single.blade.php
+   C:\wamp64\www\akaunting\resources\views\components\index\currency.blade.php
+   C:\wamp64\www\akaunting\resources\views\components\index\country.blade.php
+   C:\wamp64\www\akaunting\resources\views\components\index\disable.blade.php
+   C:\wamp64\www\akaunting\resources\views\components\contacts\index\content.blade.php
+   C:\wamp64\www\akaunting\resources\views\components\table\td.blade.php
+   C:\wamp64\www\akaunting\resources\views\components\table\th.blade.php
+   C:\wamp64\www\akaunting\resources\views\components\table\thead.blade.php
+   C:\wamp64\www\akaunting\resources\views\components\pagination.blade.php
+   C:\wamp64\www\akaunting\resources\views\components\empty-page.blade.php
+
+   
+LEVEL3(1 components\table\index.blade.php)
 DATA 
 $slot-From SLOT
 $attributes
 
 It just table anchor tags(<table></table>)
 
-LEVEL2(5 components\table\tr.blade.php)
+LEVEL3(2 components\table\tr.blade.php)
 
 DATA 
 $slot-From SLOT
@@ -1115,7 +1156,7 @@ $class
 IT JUST (<tr></tr>)
 
 
-LEVEL2(6 components\table\tbody.blade.php)
+LEVEL3(3 components\table\tbody.blade.php)
 
 DATA 
 $slot-From SLOT
@@ -1125,16 +1166,16 @@ $class
 IT JUST (<tbody></tbody>)
 
 
-LEVEL2(7 components\table\actions.blade.php)
+LEVEL3(4 components\table\actions.blade.php)
 
 DATA 
 $slot-From SLOT
 $attributes
-$action
+$actions-from Controller 
 
 IT JUST (buttons>)
 
-LEVEL2(8 components\index\bulkaction\single.blade.php)
+LEVEL3(5 components\index\bulkaction\single.blade.php)
 
 DATA 
 $attributes
@@ -1142,17 +1183,17 @@ $id
 
 IT JUST (button>)
 
-LEVEL2(9 components\index\currency.blade.php)
+LEVEL3(6 components\index\currency.blade.php)
 
 DATA 
 {{ $currency }}-FROM PARENT
 
-LEVEL2(10 components\index\country.blade.php)
+LEVEL3(7 components\index\country.blade.php)
 
 DATA 
 {{ $country }}-FROM PARENT
 
-LEVEL2(11 components\index\disable.blade.php)
+LEVEL3(8 components\index\disable.blade.php)
 
 DATA 
 {{ $icon }}-FROM PARENT
@@ -1165,7 +1206,7 @@ SUBCOMPONENT
 C:\wamp64\www\akaunting\resources\views\components\tooltip.blade.php
 {ALready}
 
-LEVEL2(12 components\table\td.blade.php)
+LEVEL3(9 components\table\td.blade.php)
 
 DATA 
 {{ $class }}-FROM PARENT
@@ -1176,7 +1217,7 @@ $slot
 
 JUST (<td></td>)
 
-LEVEL2(13 components\table\th.blade.php)
+LEVEL3(10 components\table\th.blade.php)
 
 DATA 
 {{ $class }}-FROM PARENT
@@ -1187,7 +1228,7 @@ $slot
 
 JUST (<th></th>)
 
-LEVEL2(14 components\table\thead.blade.php)
+LEVEL3(11 components\table\thead.blade.php)
 
 DATA 
 $attributes
@@ -1195,7 +1236,7 @@ $slot
 
 JUST (<thead></thead>)
 
-LEVEL2(15 components\pagination.blade.php)
+LEVEL3(12 components\pagination.blade.php)
 
 DATA 
 $items
@@ -1206,18 +1247,18 @@ C:\wamp64\www\akaunting\resources\views\vendor\nwidart\menus\item\dropdown.blade
 
 C:\wamp64\www\akaunting\resources\views\components\dropdown\link.blade.php{ALREADY}
 
-LEVEL3(1 nwidart\menus\item\dropdown.blade.php)
+LEVEL4(1 nwidart\menus\item\dropdown.blade.php)
  SUBCOMPONENT
  C:\wamp64\www\akaunting\resources\views\vendor\nwidart\menus\child\item.blade.php
 
 DATA 
 $item
 
-LEVEL4(1 nwidart\menus\child\item.blade.php)
+LEVEL5(1 nwidart\menus\child\item.blade.php)
 DATA 
 $item
 
-LEVEL2(16 components\empty-page.blade.php)
+LEVEL3(13 components\empty-page.blade.php)
 
 DATA 
 $title
@@ -1231,67 +1272,57 @@ SUBCOMPONENT
 C:\wamp64\www\akaunting\resources\views\components\title.blade.php
 C:\wamp64\www\akaunting\resources\views\components\dropdown\link.blade.php{ALREADY}
 
-LEVEL3(1 components\title.blade.php)
+LEVEL4(1 components\title.blade.php)
 DATA 
 $slot
 
-LEVEL1(5 components\contacts\script.blade.php)
+LEVEL2(6 components\documents\index\recurring_templates.blade.php)
 
 SUBCOMPONENT 
-C:\wamp64\www\akaunting\resources\views\components\contacts\script.blade.php
+C:\wamp64\www\akaunting\resources\views\components\index\bulkaction\all.blade.php
 
-LEVEL1(2 components\contacts\script.blade.php)
-GLOBAL JS VARIABLE
-contact_default_currency
-contact_currencies
-can_login_errors
+C:\wamp64\www\akaunting\resources\views\components\table\index.blade.php{ALREADY}
+
+C:\wamp64\www\akaunting\resources\views\components\table\thead.blade.php{ALREADY}
+
+C:\wamp64\www\akaunting\resources\views\components\table\tr.blade.php{ALREADY}
+
+C:\wamp64\www\akaunting\resources\views\components\table\th.blade.php{ALREADY}
+C:\wamp64\www\akaunting\resources\views\components\index\status.blade.php
+
+C:\wamp64\www\akaunting\resources\views\components\table\actions.blade.php
 
 DATA 
-$currency_code
-$currencies
-$alias
-CALCULATE $alias
-Dependents 
-$type=customer
-$alias=''
-OBJECT_TYPE='contact'
+Calculate $showRoute
+$type=bill
+static::OBJECT_TYPE=document
 
-$alias=$this->getAlias($type, $alias)=$this->getAlias(customer, '')
+$showRoute= $this->getShowRoute($type, $showRoute)=$this->getShowRoute(bill, $showRoute);
 
-$alias = config('type.' . static::OBJECT_TYPE . '.' . $type . '.alias')
-=config('type.contact.customer.alias')
+$showRoute=$this->getRouteFromConfig($type, 'show', 1)=$this->getRouteFromConfig(bill, 'show', 1)
+getRouteFromConfig($type, $config_key, $config_parameters = [], $modal = false)=getRouteFromConfig(bill, show, 1, $modal = false)
 
-FINAL $alias=''
+$route = config('type.' . document . '.' . bill . '.route.' . show)=''
 
-$folder
-CALCULATE $folder
-$folder=''
+$alias = config('type.' . document . '.' . bill . '.alias')='';
 
-$folder=$this->getScriptFolder($type, $folder)=
-$this->getScriptFolder(customer, '')
+$prefix = config('type.' . document . '.' . bill . '.route.prefix')=bills
+ 
+if they present
+$route .= 'modals.';
+$route .= bills. '.';
+$route .= show;
 
-$folder = config('type.contact.customer.script.folder')
+FINAL
+$showRoute=bills.show
 
-FINAL $folder=common
+LEVEL3(1 components\index\bulkaction\all.blade.php)
+Nothing just a checkInput
 
-$file
-CALCULATE $file
-$file=''
+LEVEL3(1 components\index\status.blade.php)
 
-$file=$this->getScriptFile($type, $file)=$this->getScriptFile(customer, ;)
-
-$file = config('type.'contact. customer . '.script.file')
-
-FINAL $file=contacts
-
-so FINAL =common/contacts.js
-
-SUBCOMPONENT 
-C:\wamp64\www\akaunting\resources\views\components\script.blade.php
-
-LEVEL2(1 components\script.blade.php)
-
-$SOURCE=public/js/common/contacts.js
-
-
+DATA 
+$backgroundColor
+$textColor
+$textStatus
 
